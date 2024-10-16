@@ -68,16 +68,23 @@ echo "Building the project..."
 qmake SampleApp.pro
 make
 
-# Check if build was successful
-if [ $? -eq 0 ]; then
-    echo "Build successful. You can now run the application with ./SampleApp"
+# Check if build was successful and SampleApp was created
+if [ $? -eq 0 ] && [ -f "./SampleApp" ]; then
+    echo "Build successful."
 else
-    echo "Build failed. Please check the error messages above."
+    echo "Build failed or SampleApp not created. Please check the error messages above."
     exit 1
 fi
 
+# Create run_app.sh
 echo '#!/bin/bash
 export QT_LOGGING_RULES="qt.qpa.xcb=false"
-./SampleApp "$@"' > run_app.sh
+if [ -f "./SampleApp" ]; then
+    ./SampleApp "$@"
+else
+    echo "Error: SampleApp not found. Please ensure the build was successful."
+    exit 1
+fi' > run_app.sh
+
 chmod +x run_app.sh
 echo "Setup complete. You can now run the application with ./run_app.sh"
