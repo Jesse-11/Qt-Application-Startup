@@ -76,4 +76,8 @@ else
     exit 1
 fi
 
-echo "Setup complete."
+echo '#!/bin/bash
+export QT_LOGGING_RULES="qt.qpa.xcb=false"
+./SampleApp "$@"' > run_app.sh
+chmod +x run_app.sh
+echo "Setup complete. You can now run the application with ./run_app.sh"

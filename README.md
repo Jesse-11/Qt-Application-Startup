@@ -1,8 +1,36 @@
 # Qt-Application-Startup
 
-In terminal run: qmake SampleApp.pro
--- This makes a Makefile ( and many others :/)
+In terminal cd to application, and make setuph.sh exectuable:
+- chmod +x setup.sh
 
-Then run: make
+run (to install qt if not already):
+- ./setup.sh
 
-To clean run: make clean
+run the application using wrapper script:
+- ./run_app.sh
+
+
+----------------------------------
+
+To rebuild app run:
+- make
+
+to run application again run:
+- ./run_app.sh
+
+
+---------------------------
+
+after runnig, to clean up files run:
+- make clean
+
+
+
+
+
+---------------------------
+if changes are made to the .pro file, make sure to run:
+- qmake SampleApp.pro
+before running:
+- make
+
