@@ -2,7 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QStackedWidget>
 #include "../src/controller/dashboardcontroller.h"
+#include "../src/controller/prescriptioncontroller.h"
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
@@ -11,10 +13,14 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void showDashboard();
+    void showPrescriptions();
+
 private:
-    DashboardModel *dashboardModel;
-    DashboardView *dashboardView;
+    QStackedWidget *stackedWidget;
     DashboardController *dashboardController;
+    PrescriptionController *prescriptionController;
 };
 
 #endif // MAINWINDOW_H

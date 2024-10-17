@@ -68,7 +68,7 @@ void DashboardView::createLayout() {
         viewRecordsButton = new QPushButton("View Records")));
     bottomLayout->addWidget(createStyledGroupBox("Prescriptions", 
         "Manage and request prescription refills", 
-        refillPrescriptionButton = new QPushButton("Refill Prescription")));
+        refillPrescriptionButton = new QPushButton("View prescriptions")));
 
     mainLayout->addLayout(bottomLayout);
 
@@ -78,6 +78,7 @@ void DashboardView::createLayout() {
     connect(bookAppointmentButton, &QPushButton::clicked, this, &DashboardView::bookAppointmentClicked);
     connect(viewRecordsButton, &QPushButton::clicked, this, &DashboardView::viewRecordsClicked);
     connect(refillPrescriptionButton, &QPushButton::clicked, this, &DashboardView::refillPrescriptionClicked);
+
 }
 
 void DashboardView::styleWidgets() {

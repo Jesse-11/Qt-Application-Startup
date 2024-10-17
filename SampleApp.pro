@@ -8,14 +8,20 @@ SOURCES += \
     src/main.cpp \
     src/mainwindow.cpp \
     src/model/dashboardmodel.cpp \
+    src/model/prescriptionmodel.cpp \
     src/view/dashboardview.cpp \
-    src/controller/dashboardcontroller.cpp
+    src/view/prescriptionview.cpp \
+    src/controller/dashboardcontroller.cpp \
+    src/controller/prescriptioncontroller.cpp
 
 HEADERS += \
     include/mainwindow.h \
     src/model/dashboardmodel.h \
+    src/model/prescriptionmodel.h \
     src/view/dashboardview.h \
-    src/controller/dashboardcontroller.h
+    src/view/prescriptionview.h \
+    src/controller/dashboardcontroller.h \
+    src/controller/prescriptioncontroller.h
 
 RESOURCES += resources.qrc
 

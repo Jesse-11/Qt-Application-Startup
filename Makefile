@@ -55,20 +55,30 @@ OBJECTS_DIR   = ./
 SOURCES       = src/main.cpp \
 		src/mainwindow.cpp \
 		src/model/dashboardmodel.cpp \
+		src/model/prescriptionmodel.cpp \
 		src/view/dashboardview.cpp \
-		src/controller/dashboardcontroller.cpp qrc_resources.cpp \
+		src/view/prescriptionview.cpp \
+		src/controller/dashboardcontroller.cpp \
+		src/controller/prescriptioncontroller.cpp qrc_resources.cpp \
 		moc_mainwindow.cpp \
 		moc_dashboardview.cpp \
-		moc_dashboardcontroller.cpp
+		moc_prescriptionview.cpp \
+		moc_dashboardcontroller.cpp \
+		moc_prescriptioncontroller.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		dashboardmodel.o \
+		prescriptionmodel.o \
 		dashboardview.o \
+		prescriptionview.o \
 		dashboardcontroller.o \
+		prescriptioncontroller.o \
 		qrc_resources.o \
 		moc_mainwindow.o \
 		moc_dashboardview.o \
-		moc_dashboardcontroller.o
+		moc_prescriptionview.o \
+		moc_dashboardcontroller.o \
+		moc_prescriptioncontroller.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -148,12 +158,18 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		SampleApp.pro include/mainwindow.h \
 		src/model/dashboardmodel.h \
+		src/model/prescriptionmodel.h \
 		src/view/dashboardview.h \
-		src/controller/dashboardcontroller.h src/main.cpp \
+		src/view/prescriptionview.h \
+		src/controller/dashboardcontroller.h \
+		src/controller/prescriptioncontroller.h src/main.cpp \
 		src/mainwindow.cpp \
 		src/model/dashboardmodel.cpp \
+		src/model/prescriptionmodel.cpp \
 		src/view/dashboardview.cpp \
-		src/controller/dashboardcontroller.cpp
+		src/view/prescriptionview.cpp \
+		src/controller/dashboardcontroller.cpp \
+		src/controller/prescriptioncontroller.cpp
 QMAKE_TARGET  = SampleApp
 DESTDIR       = 
 TARGET        = SampleApp
@@ -340,8 +356,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents include/mainwindow.h src/model/dashboardmodel.h src/view/dashboardview.h src/controller/dashboardcontroller.h $(DISTDIR)/
-	$(COPY_FILE) --parents src/main.cpp src/mainwindow.cpp src/model/dashboardmodel.cpp src/view/dashboardview.cpp src/controller/dashboardcontroller.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents include/mainwindow.h src/model/dashboardmodel.h src/model/prescriptionmodel.h src/view/dashboardview.h src/view/prescriptionview.h src/controller/dashboardcontroller.h src/controller/prescriptioncontroller.h $(DISTDIR)/
+	$(COPY_FILE) --parents src/main.cpp src/mainwindow.cpp src/model/dashboardmodel.cpp src/model/prescriptionmodel.cpp src/view/dashboardview.cpp src/view/prescriptionview.cpp src/controller/dashboardcontroller.cpp src/controller/prescriptioncontroller.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -383,13 +399,16 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -O2 -std=gnu++1z -Wall -Wextra -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_dashboardview.cpp moc_dashboardcontroller.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_dashboardview.cpp moc_prescriptionview.cpp moc_dashboardcontroller.cpp moc_prescriptioncontroller.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_dashboardview.cpp moc_dashboardcontroller.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_dashboardview.cpp moc_prescriptionview.cpp moc_dashboardcontroller.cpp moc_prescriptioncontroller.cpp
 moc_mainwindow.cpp: include/mainwindow.h \
 		src/controller/dashboardcontroller.h \
 		src/model/dashboardmodel.h \
 		src/view/dashboardview.h \
+		src/controller/prescriptioncontroller.h \
+		src/model/prescriptionmodel.h \
+		src/view/prescriptionview.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/2024-Y2-S2/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/2024-Y2-S2/Qt-Application-Startup -I/root/2024-Y2-S2/Qt-Application-Startup/include -I/root/2024-Y2-S2/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include include/mainwindow.h -o moc_mainwindow.cpp
@@ -399,12 +418,25 @@ moc_dashboardview.cpp: src/view/dashboardview.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/2024-Y2-S2/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/2024-Y2-S2/Qt-Application-Startup -I/root/2024-Y2-S2/Qt-Application-Startup/include -I/root/2024-Y2-S2/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/view/dashboardview.h -o moc_dashboardview.cpp
 
+moc_prescriptionview.cpp: src/view/prescriptionview.h \
+		src/model/prescriptionmodel.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/2024-Y2-S2/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/2024-Y2-S2/Qt-Application-Startup -I/root/2024-Y2-S2/Qt-Application-Startup/include -I/root/2024-Y2-S2/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/view/prescriptionview.h -o moc_prescriptionview.cpp
+
 moc_dashboardcontroller.cpp: src/controller/dashboardcontroller.h \
 		src/model/dashboardmodel.h \
 		src/view/dashboardview.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/2024-Y2-S2/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/2024-Y2-S2/Qt-Application-Startup -I/root/2024-Y2-S2/Qt-Application-Startup/include -I/root/2024-Y2-S2/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/controller/dashboardcontroller.h -o moc_dashboardcontroller.cpp
+
+moc_prescriptioncontroller.cpp: src/controller/prescriptioncontroller.h \
+		src/model/prescriptionmodel.h \
+		src/view/prescriptionview.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/2024-Y2-S2/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/2024-Y2-S2/Qt-Application-Startup -I/root/2024-Y2-S2/Qt-Application-Startup/include -I/root/2024-Y2-S2/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/controller/prescriptioncontroller.h -o moc_prescriptioncontroller.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -425,25 +457,43 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 main.o: src/main.cpp include/mainwindow.h \
 		src/controller/dashboardcontroller.h \
 		src/model/dashboardmodel.h \
-		src/view/dashboardview.h
+		src/view/dashboardview.h \
+		src/controller/prescriptioncontroller.h \
+		src/model/prescriptionmodel.h \
+		src/view/prescriptionview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o src/main.cpp
 
 mainwindow.o: src/mainwindow.cpp include/mainwindow.h \
 		src/controller/dashboardcontroller.h \
 		src/model/dashboardmodel.h \
-		src/view/dashboardview.h
+		src/view/dashboardview.h \
+		src/controller/prescriptioncontroller.h \
+		src/model/prescriptionmodel.h \
+		src/view/prescriptionview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o src/mainwindow.cpp
 
 dashboardmodel.o: src/model/dashboardmodel.cpp src/model/dashboardmodel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dashboardmodel.o src/model/dashboardmodel.cpp
 
+prescriptionmodel.o: src/model/prescriptionmodel.cpp src/model/prescriptionmodel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o prescriptionmodel.o src/model/prescriptionmodel.cpp
+
 dashboardview.o: src/view/dashboardview.cpp src/view/dashboardview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dashboardview.o src/view/dashboardview.cpp
+
+prescriptionview.o: src/view/prescriptionview.cpp src/view/prescriptionview.h \
+		src/model/prescriptionmodel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o prescriptionview.o src/view/prescriptionview.cpp
 
 dashboardcontroller.o: src/controller/dashboardcontroller.cpp src/controller/dashboardcontroller.h \
 		src/model/dashboardmodel.h \
 		src/view/dashboardview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dashboardcontroller.o src/controller/dashboardcontroller.cpp
+
+prescriptioncontroller.o: src/controller/prescriptioncontroller.cpp src/controller/prescriptioncontroller.h \
+		src/model/prescriptionmodel.h \
+		src/view/prescriptionview.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o prescriptioncontroller.o src/controller/prescriptioncontroller.cpp
 
 qrc_resources.o: qrc_resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resources.o qrc_resources.cpp
@@ -454,8 +504,14 @@ moc_mainwindow.o: moc_mainwindow.cpp
 moc_dashboardview.o: moc_dashboardview.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dashboardview.o moc_dashboardview.cpp
 
+moc_prescriptionview.o: moc_prescriptionview.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_prescriptionview.o moc_prescriptionview.cpp
+
 moc_dashboardcontroller.o: moc_dashboardcontroller.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dashboardcontroller.o moc_dashboardcontroller.cpp
+
+moc_prescriptioncontroller.o: moc_prescriptioncontroller.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_prescriptioncontroller.o moc_prescriptioncontroller.cpp
 
 ####### Install
 

@@ -11,6 +11,9 @@ class DashboardController : public QObject {
 public:
     explicit DashboardController(DashboardModel *model, DashboardView *view, QObject *parent = nullptr);
 
+signals:
+    void prescriptionsRequested();  
+
 private slots:
     void onStartConsultationClicked();
     void onAccessProfileClicked();

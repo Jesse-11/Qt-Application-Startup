@@ -38,5 +38,6 @@ void DashboardController::onViewRecordsClicked() {
 
 void DashboardController::onRefillPrescriptionClicked() {
     qDebug() << "Refill Prescription clicked";
+    emit prescriptionsRequested();
     // Implement the action for refilling a prescription
 }

@@ -22,12 +22,13 @@ signals:
 
 private:
     QLabel *welcomeLabel;
+    QLabel *logoLabel;
     QPushButton *startConsultationButton;
     QPushButton *accessProfileButton;
     QPushButton *bookAppointmentButton;
     QPushButton *viewRecordsButton;
     QPushButton *refillPrescriptionButton;
-    QLabel *logoLabel;
+
 
     void createLayout();
     void styleWidgets();
