@@ -86,7 +86,7 @@ void DashboardView::createLayout() {
         viewRecordsButton = new QPushButton("View Records")));
     bottomLayout->addWidget(createStyledGroupBox("Prescriptions", 
         "Manage and request prescription refills", 
-        refillPrescriptionButton = new QPushButton("Refill Prescription")));
+        refillPrescriptionButton = new QPushButton("View Prescriptions")));
 
     mainLayout->addLayout(bottomLayout);
 
