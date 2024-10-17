@@ -3,38 +3,41 @@
 
 ## How to run The application
 
-Ensure the main setup file is exectuable:
+1. Make main setup file executale:
 ` chmod +x setup.sh `
 
-Run the setup file:
+2. Run the setup file:
 ` ./setup.sh `
 
-run the application using wrapper script:
+3. run the application using the wrapper script:
 ` ./run_app.sh `
 
-To rebuild the app after changes run:
+## Development Workflow
+
+1. After making changes, rebuild the app
 ` make `
 
-to run application again run:
+2. Run the application again:
 ` ./run_app.sh `
 
-
-after running the app, to clean up files run:
+3. To clean up files:
 ` make clean ` 
 
-If at any point changes are made to the .pro file, make sure to run:
-` qmake SampleApp.pro `
-Then once again run:
-` make `
-
-
+4. If changes are made to the .pro file:
+```
+qmake SampleApp.pro 
+make 
+```
 
 
 ## How do pages connect and transition?
 
-In the mainWindow we create a QStackWisget, this is a stack of widgets. These can be indexed to show a page
+The application uses Model-View-Controller (MVC) patterns. This means that the application seperates interactions between the view (UI), Model (Data/Logic) & Controller (Middle-man).
 
-We create the views and the controllers, then add them in the main window (mainwindow.cpp):
+1. Main Window setup
+*  Firsly we create a QStackWidget. This is a stack of widgets and how we control the current page
+* We also create the views and controllers, ensruing we add them to the main window
+
 ```
 DashboardView *dashboardView = new DashboardView(this);
 PrescriptionView *prescriptionView = new PrescriptionView(this);
@@ -46,22 +49,26 @@ stackedWidget->addWidget(dashboardView);
 stackedWidget->addWidget(prescriptionView);
 ```
 
-In the dashview(UI) we set up a button and a singal(for when its clicked):
-`  QPushButton *refillPrescriptionButton; `
-`  void refillPrescriptionClicked(); `
+2. View setup
+* We need to setup a button and signal. In the dashview(UI) we set up a button and a singal(for when its clicked):
+``` 
+QPushButton *refillPrescriptionButton; 
+void refillPrescriptionClicked(); 
+```
+* In the views cpp we create a connection. This takes in the signal that is made when the button is clicked, and connects ot the the views slot. This slot emits a signal:
+```
+connect(refillPrescriptionButton, &QPushButton::clicked, this, &DashboardView::refillPrescriptionClicked); 
+``` 
 
-in the cpp we also make a connection for the signal. This connection takes in the buttons singnal indentifying when its clicked, and connects this to the slot we made ( emits a singla when we click the button):
-` connect(refillPrescriptionButton, &QPushButton::clicked, this, &DashboardView::refillPrescriptionClicked); ` 
+3. Controller connection
+* As we are using MVC, we must connect the view to the controller. To do when we connect the previous view signal to our new slot in the controller.
+* This connection will also emit its own signal
+```
+connect(view, &DashboardView::refillPrescriptionClicked, this, &DashboardController::onRefillPrescriptionClicked); 
+```
 
-
-We then must connect this singal signal to our controller (As in the MVC Pattern, it is the controllers job to handle UI interactions).
-
-So when the signal from the view slot is recieved we connect is to the controllers prescription slot. This means is emits a singal for the function shown below:
-` connect(view, &DashboardView::refillPrescriptionClicked, this, &DashboardController::onRefillPrescriptionClicked); `
-
-
-When this signal is emited, it has no connection and activates its relevant funciton:
-
+4. Controller action
+* The controler then handles the signal. As thier is no slot for the signal to conenct, it calls its relevant function. This emits its own signal:
 ```
 void DashboardController::onRefillPrescriptionClicked() {
     qDebug() << "Refill Prescription clicked";
@@ -69,13 +76,14 @@ void DashboardController::onRefillPrescriptionClicked() {
 }
 ```
 
-This function then emits another signal back to the main window which is then picked up by connection slot
+5. Main window connection
+* We then connect this signal back to a main window connection slot to change our applicaiton to the relevant page(stackedWidget)
 ```
 connect(dashboardController, &DashboardController::prescriptionsRequested, this, &MainWindow::showPrescriptions);
 ```
 
-Again, this connection releases a signal that does not have a matching connection slot, so the relevant function is called, this function indexes the original stacked widget to the correct page we want:
-
+6. Transition Page
+* Again, this connection released a signal that does not have a connection slot, so it calls its relevant function; this indexes us to the required page:
 ```
 void MainWindow::showPrescriptions() {
     stackedWidget->setCurrentIndex(1);
