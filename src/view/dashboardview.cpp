@@ -10,48 +10,55 @@
 #include <QApplication>
 #include <QScreen>
 
+// Constructor
 DashboardView::DashboardView(QWidget *parent) : QWidget(parent) {
-    createLayout();
-    styleWidgets();
+    createLayout(); // Sets up layout
+    styleWidgets(); // Apply styling to widgets
 }
 
 void DashboardView::setWelcomeMessage(const QString &message) {
-    welcomeLabel->setText(message);
+    welcomeLabel->setText(message); 
 }
 
 void DashboardView::createLayout() {
 
-
+    // Main layour with alignment and margins
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setSpacing(20);
     mainLayout->setContentsMargins(20, 20, 20, 20);
 
-    // Header
+    // Header seciton
     QHBoxLayout *headerLayout = new QHBoxLayout();
     QLabel *titleLabel = new QLabel("E-Health Portal", this);
     titleLabel->setStyleSheet("font-size: 24px; font-weight: bold; color: #333;");
     headerLayout->addWidget(titleLabel);
 
     
-    // Language Button
+    // Language Button, aligned right in header
     languageButton = new QPushButton("Language", this);
     languageButton->setFixedSize(120, 40);
     headerLayout->addWidget(languageButton, 0, Qt::AlignRight | Qt::AlignVCenter);
 
 
-    // Welcome message
+    // Welcome message - below header
     welcomeLabel = new QLabel("Welcome to your personal health management system", this);
     welcomeLabel->setStyleSheet("font-size: 16px; color: #666;");
 
+    //Combine header and welcome message vertically
     QVBoxLayout *headerVLayout = new QVBoxLayout();
     headerVLayout->addLayout(headerLayout);
     headerVLayout->addWidget(welcomeLabel);
 
+    // Wrap the header section in a stylised widget
     QWidget *headerWidget = new QWidget(this);
     headerWidget->setLayout(headerVLayout);
     headerWidget->setStyleSheet("background-color: white; border-radius: 10px; padding: 15px;");
 
-    mainLayout->addWidget(headerWidget);
+    mainLayout->addWidget(headerWidget); // Add header to main layout
+
+
+
+    // ---------------------------------------------------------
 
     // Main content
     QHBoxLayout *contentLayout = new QHBoxLayout();
