@@ -13,6 +13,7 @@ public:
 
 signals:
     void prescriptionsRequested();  
+    void languageSelectionRequested();
 
 private slots:
     void onStartConsultationClicked();
@@ -20,6 +21,7 @@ private slots:
     void onBookAppointmentClicked();
     void onViewRecordsClicked();
     void onRefillPrescriptionClicked();
+    void onLanguageButtonClicked();
 
 private:
     DashboardModel *model;

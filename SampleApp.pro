@@ -12,7 +12,7 @@ SOURCES += \
     src/view/dashboardview.cpp \
     src/view/prescriptionview.cpp \
     src/controller/dashboardcontroller.cpp \
-    src/controller/prescriptioncontroller.cpp
+    src/controller/prescriptioncontroller.cpp 
 
 HEADERS += \
     include/mainwindow.h \
@@ -21,7 +21,7 @@ HEADERS += \
     src/view/dashboardview.h \
     src/view/prescriptionview.h \
     src/controller/dashboardcontroller.h \
-    src/controller/prescriptioncontroller.h
+    src/controller/prescriptioncontroller.h 
 
 RESOURCES += resources.qrc
 

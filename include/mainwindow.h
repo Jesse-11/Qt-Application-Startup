@@ -6,6 +6,7 @@
 #include "../src/controller/dashboardcontroller.h"
 #include "../src/controller/prescriptioncontroller.h"
 
+// mainwindow.h
 class MainWindow : public QMainWindow {
     Q_OBJECT
 
