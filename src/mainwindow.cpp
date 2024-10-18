@@ -9,21 +9,30 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     setCentralWidget(stackedWidget);
 
 
+
     // Create Views
     DashboardView *dashboardView = new DashboardView(this);
     PrescriptionView *prescriptionView = new PrescriptionView(this);
+    TelemedicineView *telemedicineView = new TelemedicineView(this);
+
 
     // Create Controllers
     dashboardController = new DashboardController(new DashboardModel(), dashboardView, this);
     prescriptionController = new PrescriptionController(prescriptionView, this);
+    telemedicineController = new TelemedicineController(telemedicineView, this);
+
 
     // Add views to stacked weight
     stackedWidget->addWidget(dashboardView);
     stackedWidget->addWidget(prescriptionView);
+    stackedWidget->addWidget(telemedicineView);
+
 
     // Connect signals
     connect(dashboardController, &DashboardController::prescriptionsRequested, this, &MainWindow::showPrescriptions);
+    connect(dashboardController, &DashboardController::telemedicineRequested, this, &MainWindow::showTelemedicine);
     connect(prescriptionController, &PrescriptionController::backToDashboardRequested, this, &MainWindow::showDashboard);
+    connect(telemedicineController, &TelemedicineController::backToDashboardRequested, this, &MainWindow::showDashboard);
 
     showDashboard();
 
@@ -45,3 +54,8 @@ void MainWindow::showDashboard() {
 void MainWindow::showPrescriptions() {
     stackedWidget->setCurrentIndex(1);
 }
+
+void MainWindow::showTelemedicine() {
+    stackedWidget->setCurrentIndex(2);
+}
+
