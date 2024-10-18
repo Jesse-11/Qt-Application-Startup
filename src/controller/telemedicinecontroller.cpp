@@ -19,5 +19,4 @@ void TelemedicineController::loadTelemedicineData() {
     view->setDoctorSpecialtyLabel(model->getDoctorSpecialty());
 
     QVector<QString> steps = model->getPreparationSteps();
-    // ... rest of the function ...
 }

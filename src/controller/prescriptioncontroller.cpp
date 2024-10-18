@@ -10,7 +10,7 @@ PrescriptionController::PrescriptionController(PrescriptionView *view, QObject *
 }
 
 void PrescriptionController::loadPrescriptions() {
-    // In a real application, this data would come from a database or API
+
     prescriptions.clear();
     prescriptions.append(PrescriptionModel("Lisinopril", "10mg", "Once daily", QDate(2024, 9, 15), 2));
     prescriptions.append(PrescriptionModel("Metformin", "500mg", "Twice daily", QDate(2024, 9, 20), 3));

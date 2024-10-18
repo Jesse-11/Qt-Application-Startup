@@ -24,7 +24,7 @@ signals:
 
 private:
     TelemedicineView* view;
-    TelemedicineModel* model;  // Add this line to include the model
+    TelemedicineModel* model;  
 
     void setView(TelemedicineView* view);
     void notifyQueueUpdate();

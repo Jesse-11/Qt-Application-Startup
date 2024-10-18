@@ -24,7 +24,6 @@ void DashboardController::onLanguageButtonClicked() {
 
 void DashboardController::onStartConsultationClicked() {
     qDebug() << "Start Consultation clicked";
-    // Implement the action for starting a consultation
     emit telemedicineRequested();
 }
 
@@ -46,5 +45,4 @@ void DashboardController::onViewRecordsClicked() {
 void DashboardController::onRefillPrescriptionClicked() {
     qDebug() << "Refill Prescription clicked";
     emit prescriptionsRequested();
-    // Implement the action for refilling a prescription
 }
