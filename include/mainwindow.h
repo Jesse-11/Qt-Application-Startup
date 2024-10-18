@@ -5,7 +5,6 @@
 #include <QStackedWidget>
 #include "../src/controller/dashboardcontroller.h"
 #include "../src/controller/prescriptioncontroller.h"
-#include "../src/controller/telemedicinecontroller.h"
 
 // mainwindow.h
 class MainWindow : public QMainWindow {
@@ -18,13 +17,11 @@ public:
 private slots:
     void showDashboard();
     void showPrescriptions();
-    void showTelemedicine();
 
 private:
     QStackedWidget *stackedWidget;
     DashboardController *dashboardController;
     PrescriptionController *prescriptionController;
-    TelemedicineController *telemedicineController;
 };
 
 #endif // MAINWINDOW_H

@@ -12,9 +12,8 @@ public:
     explicit DashboardController(DashboardModel *model, DashboardView *view, QObject *parent = nullptr);
 
 signals:
-
-    void prescriptionsRequested();
-    void telemedicineRequested();  
+    void prescriptionsRequested();  
+    void languageSelectionRequested();
 
 private slots:
     void onStartConsultationClicked();
