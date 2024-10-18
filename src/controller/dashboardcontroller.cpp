@@ -19,6 +19,7 @@ void DashboardController::updateView() {
 void DashboardController::onStartConsultationClicked() {
     qDebug() << "Start Consultation clicked";
     // Implement the action for starting a consultation
+    emit telemedicineRequested();
 }
 
 void DashboardController::onAccessProfileClicked() {
