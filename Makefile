@@ -56,29 +56,39 @@ SOURCES       = src/main.cpp \
 		src/mainwindow.cpp \
 		src/model/dashboardmodel.cpp \
 		src/model/prescriptionmodel.cpp \
+		src/model/telemedicinemodel.cpp \
 		src/view/dashboardview.cpp \
 		src/view/prescriptionview.cpp \
+		src/view/telemedicineview.cpp \
 		src/controller/dashboardcontroller.cpp \
-		src/controller/prescriptioncontroller.cpp qrc_resources.cpp \
+		src/controller/prescriptioncontroller.cpp \
+		src/controller/telemedicinecontroller.cpp qrc_resources.cpp \
 		moc_mainwindow.cpp \
 		moc_dashboardview.cpp \
 		moc_prescriptionview.cpp \
+		moc_telemedicineview.cpp \
 		moc_dashboardcontroller.cpp \
-		moc_prescriptioncontroller.cpp
+		moc_prescriptioncontroller.cpp \
+		moc_telemedicinecontroller.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		dashboardmodel.o \
 		prescriptionmodel.o \
+		telemedicinemodel.o \
 		dashboardview.o \
 		prescriptionview.o \
+		telemedicineview.o \
 		dashboardcontroller.o \
 		prescriptioncontroller.o \
+		telemedicinecontroller.o \
 		qrc_resources.o \
 		moc_mainwindow.o \
 		moc_dashboardview.o \
 		moc_prescriptionview.o \
+		moc_telemedicineview.o \
 		moc_dashboardcontroller.o \
-		moc_prescriptioncontroller.o
+		moc_prescriptioncontroller.o \
+		moc_telemedicinecontroller.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -159,17 +169,23 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		SampleApp.pro include/mainwindow.h \
 		src/model/dashboardmodel.h \
 		src/model/prescriptionmodel.h \
+		src/model/telemedicinemodel.h \
 		src/view/dashboardview.h \
 		src/view/prescriptionview.h \
+		src/view/telemedicineview.h \
 		src/controller/dashboardcontroller.h \
-		src/controller/prescriptioncontroller.h src/main.cpp \
+		src/controller/prescriptioncontroller.h \
+		src/controller/telemedicinecontroller.h src/main.cpp \
 		src/mainwindow.cpp \
 		src/model/dashboardmodel.cpp \
 		src/model/prescriptionmodel.cpp \
+		src/model/telemedicinemodel.cpp \
 		src/view/dashboardview.cpp \
 		src/view/prescriptionview.cpp \
+		src/view/telemedicineview.cpp \
 		src/controller/dashboardcontroller.cpp \
-		src/controller/prescriptioncontroller.cpp
+		src/controller/prescriptioncontroller.cpp \
+		src/controller/telemedicinecontroller.cpp
 QMAKE_TARGET  = SampleApp
 DESTDIR       = 
 TARGET        = SampleApp
@@ -356,8 +372,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents include/mainwindow.h src/model/dashboardmodel.h src/model/prescriptionmodel.h src/view/dashboardview.h src/view/prescriptionview.h src/controller/dashboardcontroller.h src/controller/prescriptioncontroller.h $(DISTDIR)/
-	$(COPY_FILE) --parents src/main.cpp src/mainwindow.cpp src/model/dashboardmodel.cpp src/model/prescriptionmodel.cpp src/view/dashboardview.cpp src/view/prescriptionview.cpp src/controller/dashboardcontroller.cpp src/controller/prescriptioncontroller.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents include/mainwindow.h src/model/dashboardmodel.h src/model/prescriptionmodel.h src/model/telemedicinemodel.h src/view/dashboardview.h src/view/prescriptionview.h src/view/telemedicineview.h src/controller/dashboardcontroller.h src/controller/prescriptioncontroller.h src/controller/telemedicinecontroller.h $(DISTDIR)/
+	$(COPY_FILE) --parents src/main.cpp src/mainwindow.cpp src/model/dashboardmodel.cpp src/model/prescriptionmodel.cpp src/model/telemedicinemodel.cpp src/view/dashboardview.cpp src/view/prescriptionview.cpp src/view/telemedicineview.cpp src/controller/dashboardcontroller.cpp src/controller/prescriptioncontroller.cpp src/controller/telemedicinecontroller.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -399,9 +415,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -O2 -std=gnu++1z -Wall -Wextra -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_dashboardview.cpp moc_prescriptionview.cpp moc_dashboardcontroller.cpp moc_prescriptioncontroller.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_dashboardview.cpp moc_prescriptionview.cpp moc_telemedicineview.cpp moc_dashboardcontroller.cpp moc_prescriptioncontroller.cpp moc_telemedicinecontroller.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_dashboardview.cpp moc_prescriptionview.cpp moc_dashboardcontroller.cpp moc_prescriptioncontroller.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_dashboardview.cpp moc_prescriptionview.cpp moc_telemedicineview.cpp moc_dashboardcontroller.cpp moc_prescriptioncontroller.cpp moc_telemedicinecontroller.cpp
 moc_mainwindow.cpp: include/mainwindow.h \
 		src/controller/dashboardcontroller.h \
 		src/model/dashboardmodel.h \
@@ -409,6 +425,9 @@ moc_mainwindow.cpp: include/mainwindow.h \
 		src/controller/prescriptioncontroller.h \
 		src/model/prescriptionmodel.h \
 		src/view/prescriptionview.h \
+		src/controller/telemedicinecontroller.h \
+		src/model/telemedicinemodel.h \
+		src/view/telemedicineview.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include include/mainwindow.h -o moc_mainwindow.cpp
@@ -424,6 +443,11 @@ moc_prescriptionview.cpp: src/view/prescriptionview.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/view/prescriptionview.h -o moc_prescriptionview.cpp
 
+moc_telemedicineview.cpp: src/view/telemedicineview.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/view/telemedicineview.h -o moc_telemedicineview.cpp
+
 moc_dashboardcontroller.cpp: src/controller/dashboardcontroller.h \
 		src/model/dashboardmodel.h \
 		src/view/dashboardview.h \
@@ -437,6 +461,13 @@ moc_prescriptioncontroller.cpp: src/controller/prescriptioncontroller.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/controller/prescriptioncontroller.h -o moc_prescriptioncontroller.cpp
+
+moc_telemedicinecontroller.cpp: src/controller/telemedicinecontroller.h \
+		src/model/telemedicinemodel.h \
+		src/view/telemedicineview.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/controller/telemedicinecontroller.h -o moc_telemedicinecontroller.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -460,7 +491,10 @@ main.o: src/main.cpp include/mainwindow.h \
 		src/view/dashboardview.h \
 		src/controller/prescriptioncontroller.h \
 		src/model/prescriptionmodel.h \
-		src/view/prescriptionview.h
+		src/view/prescriptionview.h \
+		src/controller/telemedicinecontroller.h \
+		src/model/telemedicinemodel.h \
+		src/view/telemedicineview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o src/main.cpp
 
 mainwindow.o: src/mainwindow.cpp include/mainwindow.h \
@@ -469,7 +503,10 @@ mainwindow.o: src/mainwindow.cpp include/mainwindow.h \
 		src/view/dashboardview.h \
 		src/controller/prescriptioncontroller.h \
 		src/model/prescriptionmodel.h \
-		src/view/prescriptionview.h
+		src/view/prescriptionview.h \
+		src/controller/telemedicinecontroller.h \
+		src/model/telemedicinemodel.h \
+		src/view/telemedicineview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o src/mainwindow.cpp
 
 dashboardmodel.o: src/model/dashboardmodel.cpp src/model/dashboardmodel.h
@@ -478,12 +515,18 @@ dashboardmodel.o: src/model/dashboardmodel.cpp src/model/dashboardmodel.h
 prescriptionmodel.o: src/model/prescriptionmodel.cpp src/model/prescriptionmodel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o prescriptionmodel.o src/model/prescriptionmodel.cpp
 
+telemedicinemodel.o: src/model/telemedicinemodel.cpp src/model/telemedicinemodel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o telemedicinemodel.o src/model/telemedicinemodel.cpp
+
 dashboardview.o: src/view/dashboardview.cpp src/view/dashboardview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dashboardview.o src/view/dashboardview.cpp
 
 prescriptionview.o: src/view/prescriptionview.cpp src/view/prescriptionview.h \
 		src/model/prescriptionmodel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o prescriptionview.o src/view/prescriptionview.cpp
+
+telemedicineview.o: src/view/telemedicineview.cpp src/view/telemedicineview.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o telemedicineview.o src/view/telemedicineview.cpp
 
 dashboardcontroller.o: src/controller/dashboardcontroller.cpp src/controller/dashboardcontroller.h \
 		src/model/dashboardmodel.h \
@@ -494,6 +537,11 @@ prescriptioncontroller.o: src/controller/prescriptioncontroller.cpp src/controll
 		src/model/prescriptionmodel.h \
 		src/view/prescriptionview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o prescriptioncontroller.o src/controller/prescriptioncontroller.cpp
+
+telemedicinecontroller.o: src/controller/telemedicinecontroller.cpp src/controller/telemedicinecontroller.h \
+		src/model/telemedicinemodel.h \
+		src/view/telemedicineview.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o telemedicinecontroller.o src/controller/telemedicinecontroller.cpp
 
 qrc_resources.o: qrc_resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resources.o qrc_resources.cpp
@@ -507,11 +555,17 @@ moc_dashboardview.o: moc_dashboardview.cpp
 moc_prescriptionview.o: moc_prescriptionview.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_prescriptionview.o moc_prescriptionview.cpp
 
+moc_telemedicineview.o: moc_telemedicineview.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_telemedicineview.o moc_telemedicineview.cpp
+
 moc_dashboardcontroller.o: moc_dashboardcontroller.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dashboardcontroller.o moc_dashboardcontroller.cpp
 
 moc_prescriptioncontroller.o: moc_prescriptioncontroller.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_prescriptioncontroller.o moc_prescriptioncontroller.cpp
+
+moc_telemedicinecontroller.o: moc_telemedicinecontroller.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_telemedicinecontroller.o moc_telemedicinecontroller.cpp
 
 ####### Install
 

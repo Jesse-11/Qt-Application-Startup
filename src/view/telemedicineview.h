@@ -1,5 +1,3 @@
-// TelemedicineView.h
-
 #ifndef TELEMEDICINEVIEW_H
 #define TELEMEDICINEVIEW_H
 
@@ -11,8 +9,6 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QGroupBox>
-#include "../controller/telemedicinecontroller.h"
-#include "../model/telemedicinemodel.h"
 
 class TelemedicineView : public QWidget {
     Q_OBJECT
@@ -29,11 +25,8 @@ public:
 signals:
     void contactSupportClicked();
     void backToDashboard();
-    
-
 
 private:
-  
     QLabel *titleLabel;
     QLabel *queuePositionLabel;
     QLabel *waitTimeLabel;
@@ -42,18 +35,12 @@ private:
     QLabel *preparationLabel;
     QPushButton *contactSupportButton;
     QPushButton *settingsButton;
-    QPushButton *backButton;
 
-   
-   void createLayout();
+    void createLayout();
     QFrame* createEstimatedWaitTimeFrame();
     QFrame* createYourDoctorFrame();
     QFrame* createPrepareConsultationFrame();
     QFrame* createNeedAssistanceFrame();
-
-
-
- 
 };
 
 #endif // TELEMEDICINEVIEW_H

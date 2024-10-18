@@ -9,20 +9,25 @@ SOURCES += \
     src/mainwindow.cpp \
     src/model/dashboardmodel.cpp \
     src/model/prescriptionmodel.cpp \
+    src/model/telemedicinemodel.cpp \
     src/view/dashboardview.cpp \
     src/view/prescriptionview.cpp \
+    src/view/telemedicineview.cpp \
     src/controller/dashboardcontroller.cpp \
-    src/controller/prescriptioncontroller.cpp 
+    src/controller/prescriptioncontroller.cpp \
+    src/controller/telemedicinecontroller.cpp
 
 HEADERS += \
     include/mainwindow.h \
     src/model/dashboardmodel.h \
     src/model/prescriptionmodel.h \
+    src/model/telemedicinemodel.h \
     src/view/dashboardview.h \
     src/view/prescriptionview.h \
+    src/view/telemedicineview.h \
     src/controller/dashboardcontroller.h \
-    src/controller/prescriptioncontroller.h 
-
+    src/controller/prescriptioncontroller.h \
+    src/controller/telemedicinecontroller.h
 RESOURCES += resources.qrc
 
 INCLUDEPATH += \

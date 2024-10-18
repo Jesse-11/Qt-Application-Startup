@@ -1,10 +1,6 @@
 #include "telemedicineview.h"
-#include "../controller/telemedicinecontroller.h"
-#include "../model/telemedicinemodel.h"
-
 #include <QVBoxLayout>
 #include <QHBoxLayout>
-#include <QLabel>
 #include <QFrame>
 #include <QPushButton>
 #include <QListWidget>
@@ -18,10 +14,10 @@ void TelemedicineView::createLayout() {
 
     // Header
     QHBoxLayout *headerLayout = new QHBoxLayout();
-    QLabel *titleLabel = new QLabel("Telemedicine Consultation Queue", this);
+    titleLabel = new QLabel("Telemedicine Consultation Queue", this);
     titleLabel->setStyleSheet("font-size: 18px; font-weight: bold;");
 
-    QPushButton *settingsButton = new QPushButton(this);
+    settingsButton = new QPushButton(this);
     settingsButton->setIcon(QIcon(":resources/images/settings.png"));
     settingsButton->setFixedSize(32, 32);
     settingsButton->setStyleSheet("border: none; background: transparent;");
@@ -74,11 +70,11 @@ QFrame* TelemedicineView::createEstimatedWaitTimeFrame() {
     iconAndTitleLayout->addWidget(title);
     iconAndTitleLayout->addStretch();
 
-    QLabel *waitTimeLabel = new QLabel("12 minutes", this);
+    waitTimeLabel = new QLabel("12 minutes", this);
     waitTimeLabel->setStyleSheet("font-size: 36px; color: #4a90e2; font-weight: bold;");
     waitTimeLabel->setAlignment(Qt::AlignCenter);
 
-    QLabel *queuePositionLabel = new QLabel("Your position in queue: 3", this);
+    queuePositionLabel = new QLabel("Your position in queue: 3", this);
     queuePositionLabel->setStyleSheet("color: gray;");
     queuePositionLabel->setAlignment(Qt::AlignCenter);
 
@@ -110,8 +106,8 @@ QFrame* TelemedicineView::createYourDoctorFrame() {
     avatarLabel->setFixedSize(64, 64);
     avatarLabel->setStyleSheet("background-color: lightgray; border-radius: 32px;");
     QVBoxLayout *doctorDetailsLayout = new QVBoxLayout();
-    QLabel *doctorNameLabel = new QLabel("Dr. Jane Smith", this);
-    QLabel *doctorSpecialtyLabel = new QLabel("General Practitioner", this);
+    doctorNameLabel = new QLabel("Dr. Jane Smith", this);
+    doctorSpecialtyLabel = new QLabel("General Practitioner", this);
     doctorSpecialtyLabel->setStyleSheet("color: gray;");
     doctorDetailsLayout->addWidget(doctorNameLabel);
     doctorDetailsLayout->addWidget(doctorSpecialtyLabel);
@@ -134,10 +130,10 @@ QFrame* TelemedicineView::createPrepareConsultationFrame() {
     QHBoxLayout *iconAndTitleLayout = new QHBoxLayout();
     QLabel *prepareIcon = new QLabel("📋", this);
     prepareIcon->setStyleSheet("font-size: 18px;");
-    QLabel *title = new QLabel("Prepare for Your Consultation", this);
-    title->setStyleSheet("font-weight: bold;");
+    preparationLabel = new QLabel("Prepare for Your Consultation", this);
+    preparationLabel->setStyleSheet("font-weight: bold;");
     iconAndTitleLayout->addWidget(prepareIcon);
-    iconAndTitleLayout->addWidget(title);
+    iconAndTitleLayout->addWidget(preparationLabel);
     iconAndTitleLayout->addStretch();
 
     QListWidget *prepStepsList = new QListWidget(this);
@@ -166,7 +162,7 @@ QFrame* TelemedicineView::createNeedAssistanceFrame() {
     QLabel *assistanceText = new QLabel("If you're experiencing technical difficulties or need to reschedule:", this);
     assistanceText->setWordWrap(true);
 
-    QPushButton *contactSupportButton = new QPushButton("Contact Support", this);
+    contactSupportButton = new QPushButton("Contact Support", this);
     contactSupportButton->setStyleSheet("background-color: #333; color: white; padding: 10px;");
 
     layout->addWidget(title);
@@ -175,22 +171,33 @@ QFrame* TelemedicineView::createNeedAssistanceFrame() {
 
     return frame;
 }
+
 void TelemedicineView::setQueuePositionLabel(const QString& text) {
-    queuePositionLabel->setText(text);
+    if (queuePositionLabel) {
+        queuePositionLabel->setText(text);
+    }
 }
 
 void TelemedicineView::setWaitTimeLabel(const QString& text) {
-    waitTimeLabel->setText(text);
+    if (waitTimeLabel) {
+        waitTimeLabel->setText(text);
+    }
 }
 
 void TelemedicineView::setDoctorNameLabel(const QString& text) {
-    doctorNameLabel->setText(text);
+    if (doctorNameLabel) {
+        doctorNameLabel->setText(text);
+    }
 }
 
 void TelemedicineView::setDoctorSpecialtyLabel(const QString& text) {
-    doctorSpecialtyLabel->setText(text);
+    if (doctorSpecialtyLabel) {
+        doctorSpecialtyLabel->setText(text);
+    }
 }
 
 void TelemedicineView::setPreparationLabel(const QString& text) {
-    preparationLabel->setText(text);
+    if (preparationLabel) {
+        preparationLabel->setText(text);
+    }
 }
