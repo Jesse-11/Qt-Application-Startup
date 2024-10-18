@@ -10,10 +10,16 @@ DashboardController::DashboardController(DashboardModel *model, DashboardView *v
     connect(view, &DashboardView::bookAppointmentClicked, this, &DashboardController::onBookAppointmentClicked);
     connect(view, &DashboardView::viewRecordsClicked, this, &DashboardController::onViewRecordsClicked);
     connect(view, &DashboardView::refillPrescriptionClicked, this, &DashboardController::onRefillPrescriptionClicked);
+    connect(view, &DashboardView::languageButtonClicked, this, &DashboardController::onLanguageButtonClicked);
 }
 
 void DashboardController::updateView() {
     view->setWelcomeMessage(model->getWelcomeMessage());
+}
+
+void DashboardController::onLanguageButtonClicked() {
+    qDebug() << "Language button clicked";
+    emit languageSelectionRequested();
 }
 
 void DashboardController::onStartConsultationClicked() {

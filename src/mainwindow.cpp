@@ -54,6 +54,8 @@ void MainWindow::showDashboard() {
 void MainWindow::showPrescriptions() {
     stackedWidget->setCurrentIndex(1);
 }
+
 void MainWindow::showTelemedicine() {
     stackedWidget->setCurrentIndex(2);
 }
+

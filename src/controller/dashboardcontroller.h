@@ -12,6 +12,7 @@ public:
     explicit DashboardController(DashboardModel *model, DashboardView *view, QObject *parent = nullptr);
 
 signals:
+
     void prescriptionsRequested();
     void telemedicineRequested();  
 
@@ -21,6 +22,7 @@ private slots:
     void onBookAppointmentClicked();
     void onViewRecordsClicked();
     void onRefillPrescriptionClicked();
+    void onLanguageButtonClicked();
 
 private:
     DashboardModel *model;

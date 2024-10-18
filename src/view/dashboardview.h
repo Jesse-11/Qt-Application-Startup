@@ -19,15 +19,17 @@ signals:
     void bookAppointmentClicked();
     void viewRecordsClicked();
     void refillPrescriptionClicked();
+    void languageSelectionClicked();
+    void languageButtonClicked();
 
 private:
     QLabel *welcomeLabel;
-    QLabel *logoLabel;
     QPushButton *startConsultationButton;
     QPushButton *accessProfileButton;
     QPushButton *bookAppointmentButton;
     QPushButton *viewRecordsButton;
     QPushButton *refillPrescriptionButton;
+    QPushButton *languageButton;
 
 
     void createLayout();

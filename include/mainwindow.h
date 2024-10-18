@@ -7,6 +7,7 @@
 #include "../src/controller/prescriptioncontroller.h"
 #include "../src/controller/telemedicinecontroller.h"
 
+// mainwindow.h
 class MainWindow : public QMainWindow {
     Q_OBJECT
 
