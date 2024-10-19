@@ -10,11 +10,14 @@ SOURCES += \
     src/model/dashboardmodel.cpp \
     src/model/prescriptionmodel.cpp \
     src/model/telemedicinemodel.cpp \
+    src/model/appointmentmodel.cpp \
     src/view/dashboardview.cpp \
     src/view/prescriptionview.cpp \
     src/view/telemedicineview.cpp \
+    src/view/appointmentview.cpp \
     src/controller/dashboardcontroller.cpp \
     src/controller/prescriptioncontroller.cpp \
+    src/controller/appointmentcontroller.cpp \
     src/controller/telemedicinecontroller.cpp
 
 HEADERS += \
@@ -22,11 +25,14 @@ HEADERS += \
     src/model/dashboardmodel.h \
     src/model/prescriptionmodel.h \
     src/model/telemedicinemodel.h \
+    src/model/appointmentmodel.h \
     src/view/dashboardview.h \
     src/view/prescriptionview.h \
     src/view/telemedicineview.h \
+    src/view/appointmentview.h \
     src/controller/dashboardcontroller.h \
     src/controller/prescriptioncontroller.h \
+    src/controller/appointmentcontroller.h \
     src/controller/telemedicinecontroller.h
 RESOURCES += resources.qrc
 

@@ -34,7 +34,7 @@ void DashboardController::onAccessProfileClicked() {
 
 void DashboardController::onBookAppointmentClicked() {
     qDebug() << "Book Appointment clicked";
-    // Implement the action for booking an appointment
+    emit appointmentRequested();
 }
 
 void DashboardController::onViewRecordsClicked() {
