@@ -42,6 +42,7 @@ void AppointmentController::handleCancelRequest(const QString &appointmentId) {
 void AppointmentController::handleMakeNewAppointment() {
     // In a real application, this would open a dialog or navigate to a new appointment page
     qDebug() << "Make new appointment requested";
+     emit doctorSearchRequested();
 }
 
 void AppointmentController::loadMockAppointments() {

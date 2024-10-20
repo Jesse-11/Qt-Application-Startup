@@ -19,7 +19,7 @@ public slots:
 
 signals:
     void backToDashboardRequested();
-
+    void doctorSearchRequested();
 private:
     AppointmentView *view;
     QList<AppointmentModel> appointments;
