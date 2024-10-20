@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     AppointmentView *appointmentView = new AppointmentView(this);
     DoctorSearchView *doctorsearchView = new DoctorSearchView(this);
     confirmappointmentView = new ConfirmAppointmentView(this);
+    LanguageSelectionView *languageselectionView = new LanguageSelectionView(this);
     // Create Controllers
     dashboardController = new DashboardController(new DashboardModel(), dashboardView, this);
     prescriptionController = new PrescriptionController(prescriptionView, this);
@@ -24,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     appointmentController = new AppointmentController(appointmentView, this);
     doctorsearchController = new DoctorSearchController(doctorsearchView, this);
     confirmappointmentController = new ConfirmAppointmentController(confirmappointmentView, this);
+    languageselectionController = new LanguageSelectionController(languageselectionModel, languageselectionView, this);
 
     // Add views to stacked widget
     stackedWidget->addWidget(dashboardView);
@@ -32,12 +34,14 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     stackedWidget->addWidget(appointmentView);
     stackedWidget->addWidget(doctorsearchView);
     stackedWidget->addWidget(confirmappointmentView);
+    stackedWidget->addWidget(languageselectionView);
 
     // Connect signals
     connect(dashboardController, &DashboardController::prescriptionsRequested, this, &MainWindow::showPrescriptions);
     connect(dashboardController, &DashboardController::telemedicineRequested, this, &MainWindow::showTelemedicine);
     connect(dashboardController, &DashboardController::appointmentRequested, this, &MainWindow::showAppointment);
-    
+    connect(dashboardController, &DashboardController::languageSelectionRequested, this, &MainWindow::showLanguageSelection);
+
     connect(prescriptionController, &PrescriptionController::backToDashboardRequested, this, &MainWindow::showDashboard);
     connect(telemedicineController, &TelemedicineController::backToDashboardRequested, this, &MainWindow::showDashboard);
     connect(appointmentController, &AppointmentController::backToDashboardRequested, this, &MainWindow::showDashboard);
@@ -46,6 +50,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     connect(doctorsearchController, &DoctorSearchController::appointmentConfirmationRequested, this, &MainWindow::showConfirmAppointment);
     connect(confirmappointmentController, &ConfirmAppointmentController::appointmentConfirmed, this, &MainWindow::handleAppointmentConfirmed);
     connect(confirmappointmentController, &ConfirmAppointmentController::appointmentCancelled, this, &MainWindow::handleAppointmentCancelled);
+    connect(languageselectionController, &LanguageSelectionController::languageChanged, this, &MainWindow::onLanguageChanged);
+    connect(languageselectionController, &LanguageSelectionController::cancelRequested, this, &MainWindow::showDashboard);
 
     showDashboard();
 
@@ -80,6 +86,10 @@ void MainWindow::showDoctorSearch() {
     stackedWidget->setCurrentIndex(4);
 }
 
+void MainWindow::showLanguageSelection() {
+    stackedWidget->setCurrentIndex(6);  
+}
+
 void MainWindow::showConfirmAppointment(const QString &doctor, const QDate &date, const QString &time) {
     qDebug() << "showConfirmAppointment called";
     if (!stackedWidget) {
@@ -102,5 +112,10 @@ void MainWindow::handleAppointmentConfirmed()
 
 void MainWindow::handleAppointmentCancelled()
 {
+    showDashboard();
+}
+
+void MainWindow::onLanguageChanged(const QString& languageCode) {
+    qDebug() << "Language changed to:" << languageCode;
     showDashboard();
 }

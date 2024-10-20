@@ -19,7 +19,7 @@ void DashboardController::updateView() {
 
 void DashboardController::onLanguageButtonClicked() {
     qDebug() << "Language button clicked";
-    //emit languageSelectionRequested();
+    emit languageSelectionRequested();
 }
 
 void DashboardController::onStartConsultationClicked() {

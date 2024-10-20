@@ -16,6 +16,7 @@ signals:
     void prescriptionsRequested();
     void telemedicineRequested();  
     void appointmentRequested();
+    void languageSelectionRequested();
 
 private slots:
     void onStartConsultationClicked();

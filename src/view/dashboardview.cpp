@@ -145,7 +145,7 @@ void DashboardView::createLayout() {
     connect(bookAppointmentButton, &QPushButton::clicked, this, &DashboardView::bookAppointmentClicked);
     connect(viewRecordsButton, &QPushButton::clicked, this, &DashboardView::viewRecordsClicked);
     connect(refillPrescriptionButton, &QPushButton::clicked, this, &DashboardView::refillPrescriptionClicked);
-    connect(languageButton, &QPushButton::clicked, this, &DashboardView::languageSelectionClicked);
+    
     connect(languageButton, &QPushButton::clicked, this, &DashboardView::languageButtonClicked);
 
 }

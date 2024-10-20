@@ -7,6 +7,7 @@
 #include "../src/controller/appointmentcontroller.h"
 #include "../src/controller/doctorsearchcontroller.h"
 #include "../src/controller/confirmappointmentcontroller.h"
+#include "../src/controller/languageselectioncontroller.h"
 #include <QDebug>
 
 
@@ -26,6 +27,8 @@ private slots:
     void showConfirmAppointment(const QString &doctor, const QDate &date, const QString &time);
     void handleAppointmentConfirmed();
     void handleAppointmentCancelled();
+    void showLanguageSelection();
+    void onLanguageChanged(const QString& languageCode);
 
 private:
     QStackedWidget *stackedWidget;
@@ -36,5 +39,7 @@ private:
     DoctorSearchController *doctorsearchController;
     ConfirmAppointmentController *confirmappointmentController;
     ConfirmAppointmentView *confirmappointmentView; 
-    
+    LanguageSelectionController* languageselectionController;
+    LanguageSelectionModel *languageselectionModel;
+    LanguageSelectionView *languageselectionView;
 };

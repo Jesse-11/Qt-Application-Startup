@@ -13,17 +13,20 @@ SOURCES += \
     src/model/appointmentmodel.cpp \
     src/model/doctorsearchmodel.cpp \
     src/model/confirmappointmentmodel.cpp \
+    src/model/languageselectionmodel.cpp \
     src/view/dashboardview.cpp \
     src/view/prescriptionview.cpp \
     src/view/telemedicineview.cpp \
     src/view/appointmentview.cpp \
     src/view/doctorsearchview.cpp \
     src/view/confirmappointmentview.cpp \
+    src/view/languageselectionview.cpp \
     src/controller/dashboardcontroller.cpp \
     src/controller/prescriptioncontroller.cpp \
     src/controller/appointmentcontroller.cpp \
     src/controller/doctorsearchcontroller.cpp \
     src/controller/confirmappointmentcontroller.cpp \
+    src/controller/languageselectioncontroller.cpp \
     src/controller/telemedicinecontroller.cpp
 
 HEADERS += \
@@ -34,17 +37,20 @@ HEADERS += \
     src/model/appointmentmodel.h \
     src/model/doctorsearchmodel.h \
     src/model/confirmappointmentmodel.h \
+    src/model/languageselectionmodel.h \
     src/view/dashboardview.h \
     src/view/prescriptionview.h \
     src/view/telemedicineview.h \
     src/view/appointmentview.h \
     src/view/doctorsearchview.h \
     src/view/confirmappointmentview.h \
+    src/view/languageselectionview.h \
     src/controller/dashboardcontroller.h \
     src/controller/prescriptioncontroller.h \
     src/controller/appointmentcontroller.h \
     src/controller/doctorsearchcontroller.h \
     src/controller/confirmappointmentcontroller.h \
+    src/controller/languageselectioncontroller.h \
     src/controller/telemedicinecontroller.h
 RESOURCES += resources.qrc
 
