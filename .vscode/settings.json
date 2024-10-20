@@ -11,6 +11,9 @@
         "thread": "cpp",
         "qguiapplication": "cpp",
         "qdate": "cpp",
-        "qlabel": "cpp"
+        "qlabel": "cpp",
+        "qpushbutton": "cpp",
+        "qgridlayout": "cpp",
+        "qhboxlayout": "cpp"
     }
 }
