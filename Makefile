@@ -58,22 +58,32 @@ SOURCES       = src/main.cpp \
 		src/model/prescriptionmodel.cpp \
 		src/model/telemedicinemodel.cpp \
 		src/model/appointmentmodel.cpp \
+		src/model/doctorsearchmodel.cpp \
+		src/model/confirmappointmentmodel.cpp \
 		src/view/dashboardview.cpp \
 		src/view/prescriptionview.cpp \
 		src/view/telemedicineview.cpp \
 		src/view/appointmentview.cpp \
+		src/view/doctorsearchview.cpp \
+		src/view/confirmappointmentview.cpp \
 		src/controller/dashboardcontroller.cpp \
 		src/controller/prescriptioncontroller.cpp \
 		src/controller/appointmentcontroller.cpp \
+		src/controller/doctorsearchcontroller.cpp \
+		src/controller/confirmappointmentcontroller.cpp \
 		src/controller/telemedicinecontroller.cpp qrc_resources.cpp \
 		moc_mainwindow.cpp \
 		moc_dashboardview.cpp \
 		moc_prescriptionview.cpp \
 		moc_telemedicineview.cpp \
 		moc_appointmentview.cpp \
+		moc_doctorsearchview.cpp \
+		moc_confirmappointmentview.cpp \
 		moc_dashboardcontroller.cpp \
 		moc_prescriptioncontroller.cpp \
 		moc_appointmentcontroller.cpp \
+		moc_doctorsearchcontroller.cpp \
+		moc_confirmappointmentcontroller.cpp \
 		moc_telemedicinecontroller.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
@@ -81,13 +91,19 @@ OBJECTS       = main.o \
 		prescriptionmodel.o \
 		telemedicinemodel.o \
 		appointmentmodel.o \
+		doctorsearchmodel.o \
+		confirmappointmentmodel.o \
 		dashboardview.o \
 		prescriptionview.o \
 		telemedicineview.o \
 		appointmentview.o \
+		doctorsearchview.o \
+		confirmappointmentview.o \
 		dashboardcontroller.o \
 		prescriptioncontroller.o \
 		appointmentcontroller.o \
+		doctorsearchcontroller.o \
+		confirmappointmentcontroller.o \
 		telemedicinecontroller.o \
 		qrc_resources.o \
 		moc_mainwindow.o \
@@ -95,9 +111,13 @@ OBJECTS       = main.o \
 		moc_prescriptionview.o \
 		moc_telemedicineview.o \
 		moc_appointmentview.o \
+		moc_doctorsearchview.o \
+		moc_confirmappointmentview.o \
 		moc_dashboardcontroller.o \
 		moc_prescriptioncontroller.o \
 		moc_appointmentcontroller.o \
+		moc_doctorsearchcontroller.o \
+		moc_confirmappointmentcontroller.o \
 		moc_telemedicinecontroller.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -181,26 +201,38 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		src/model/prescriptionmodel.h \
 		src/model/telemedicinemodel.h \
 		src/model/appointmentmodel.h \
+		src/model/doctorsearchmodel.h \
+		src/model/confirmappointmentmodel.h \
 		src/view/dashboardview.h \
 		src/view/prescriptionview.h \
 		src/view/telemedicineview.h \
 		src/view/appointmentview.h \
+		src/view/doctorsearchview.h \
+		src/view/confirmappointmentview.h \
 		src/controller/dashboardcontroller.h \
 		src/controller/prescriptioncontroller.h \
 		src/controller/appointmentcontroller.h \
+		src/controller/doctorsearchcontroller.h \
+		src/controller/confirmappointmentcontroller.h \
 		src/controller/telemedicinecontroller.h src/main.cpp \
 		src/mainwindow.cpp \
 		src/model/dashboardmodel.cpp \
 		src/model/prescriptionmodel.cpp \
 		src/model/telemedicinemodel.cpp \
 		src/model/appointmentmodel.cpp \
+		src/model/doctorsearchmodel.cpp \
+		src/model/confirmappointmentmodel.cpp \
 		src/view/dashboardview.cpp \
 		src/view/prescriptionview.cpp \
 		src/view/telemedicineview.cpp \
 		src/view/appointmentview.cpp \
+		src/view/doctorsearchview.cpp \
+		src/view/confirmappointmentview.cpp \
 		src/controller/dashboardcontroller.cpp \
 		src/controller/prescriptioncontroller.cpp \
 		src/controller/appointmentcontroller.cpp \
+		src/controller/doctorsearchcontroller.cpp \
+		src/controller/confirmappointmentcontroller.cpp \
 		src/controller/telemedicinecontroller.cpp
 QMAKE_TARGET  = SampleApp
 DESTDIR       = 
@@ -388,8 +420,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents include/mainwindow.h src/model/dashboardmodel.h src/model/prescriptionmodel.h src/model/telemedicinemodel.h src/model/appointmentmodel.h src/view/dashboardview.h src/view/prescriptionview.h src/view/telemedicineview.h src/view/appointmentview.h src/controller/dashboardcontroller.h src/controller/prescriptioncontroller.h src/controller/appointmentcontroller.h src/controller/telemedicinecontroller.h $(DISTDIR)/
-	$(COPY_FILE) --parents src/main.cpp src/mainwindow.cpp src/model/dashboardmodel.cpp src/model/prescriptionmodel.cpp src/model/telemedicinemodel.cpp src/model/appointmentmodel.cpp src/view/dashboardview.cpp src/view/prescriptionview.cpp src/view/telemedicineview.cpp src/view/appointmentview.cpp src/controller/dashboardcontroller.cpp src/controller/prescriptioncontroller.cpp src/controller/appointmentcontroller.cpp src/controller/telemedicinecontroller.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents include/mainwindow.h src/model/dashboardmodel.h src/model/prescriptionmodel.h src/model/telemedicinemodel.h src/model/appointmentmodel.h src/model/doctorsearchmodel.h src/model/confirmappointmentmodel.h src/view/dashboardview.h src/view/prescriptionview.h src/view/telemedicineview.h src/view/appointmentview.h src/view/doctorsearchview.h src/view/confirmappointmentview.h src/controller/dashboardcontroller.h src/controller/prescriptioncontroller.h src/controller/appointmentcontroller.h src/controller/doctorsearchcontroller.h src/controller/confirmappointmentcontroller.h src/controller/telemedicinecontroller.h $(DISTDIR)/
+	$(COPY_FILE) --parents src/main.cpp src/mainwindow.cpp src/model/dashboardmodel.cpp src/model/prescriptionmodel.cpp src/model/telemedicinemodel.cpp src/model/appointmentmodel.cpp src/model/doctorsearchmodel.cpp src/model/confirmappointmentmodel.cpp src/view/dashboardview.cpp src/view/prescriptionview.cpp src/view/telemedicineview.cpp src/view/appointmentview.cpp src/view/doctorsearchview.cpp src/view/confirmappointmentview.cpp src/controller/dashboardcontroller.cpp src/controller/prescriptioncontroller.cpp src/controller/appointmentcontroller.cpp src/controller/doctorsearchcontroller.cpp src/controller/confirmappointmentcontroller.cpp src/controller/telemedicinecontroller.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -431,9 +463,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -O2 -std=gnu++1z -Wall -Wextra -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_dashboardview.cpp moc_prescriptionview.cpp moc_telemedicineview.cpp moc_appointmentview.cpp moc_dashboardcontroller.cpp moc_prescriptioncontroller.cpp moc_appointmentcontroller.cpp moc_telemedicinecontroller.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_dashboardview.cpp moc_prescriptionview.cpp moc_telemedicineview.cpp moc_appointmentview.cpp moc_doctorsearchview.cpp moc_confirmappointmentview.cpp moc_dashboardcontroller.cpp moc_prescriptioncontroller.cpp moc_appointmentcontroller.cpp moc_doctorsearchcontroller.cpp moc_confirmappointmentcontroller.cpp moc_telemedicinecontroller.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_dashboardview.cpp moc_prescriptionview.cpp moc_telemedicineview.cpp moc_appointmentview.cpp moc_dashboardcontroller.cpp moc_prescriptioncontroller.cpp moc_appointmentcontroller.cpp moc_telemedicinecontroller.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_dashboardview.cpp moc_prescriptionview.cpp moc_telemedicineview.cpp moc_appointmentview.cpp moc_doctorsearchview.cpp moc_confirmappointmentview.cpp moc_dashboardcontroller.cpp moc_prescriptioncontroller.cpp moc_appointmentcontroller.cpp moc_doctorsearchcontroller.cpp moc_confirmappointmentcontroller.cpp moc_telemedicinecontroller.cpp
 moc_mainwindow.cpp: include/mainwindow.h \
 		src/controller/dashboardcontroller.h \
 		src/model/dashboardmodel.h \
@@ -447,6 +479,12 @@ moc_mainwindow.cpp: include/mainwindow.h \
 		src/controller/appointmentcontroller.h \
 		src/model/appointmentmodel.h \
 		src/view/appointmentview.h \
+		src/controller/doctorsearchcontroller.h \
+		src/model/doctorsearchmodel.h \
+		src/view/doctorsearchview.h \
+		src/view/confirmappointmentview.h \
+		src/model/confirmappointmentmodel.h \
+		src/controller/confirmappointmentcontroller.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/eli/Qt-Application-Startup-1/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/eli/Qt-Application-Startup-1 -I/home/eli/Qt-Application-Startup-1/include -I/home/eli/Qt-Application-Startup-1/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include include/mainwindow.h -o moc_mainwindow.cpp
@@ -473,6 +511,17 @@ moc_appointmentview.cpp: src/view/appointmentview.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/eli/Qt-Application-Startup-1/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/eli/Qt-Application-Startup-1 -I/home/eli/Qt-Application-Startup-1/include -I/home/eli/Qt-Application-Startup-1/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/view/appointmentview.h -o moc_appointmentview.cpp
 
+moc_doctorsearchview.cpp: src/view/doctorsearchview.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/eli/Qt-Application-Startup-1/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/eli/Qt-Application-Startup-1 -I/home/eli/Qt-Application-Startup-1/include -I/home/eli/Qt-Application-Startup-1/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/view/doctorsearchview.h -o moc_doctorsearchview.cpp
+
+moc_confirmappointmentview.cpp: src/view/confirmappointmentview.h \
+		src/model/confirmappointmentmodel.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/eli/Qt-Application-Startup-1/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/eli/Qt-Application-Startup-1 -I/home/eli/Qt-Application-Startup-1/include -I/home/eli/Qt-Application-Startup-1/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/view/confirmappointmentview.h -o moc_confirmappointmentview.cpp
+
 moc_dashboardcontroller.cpp: src/controller/dashboardcontroller.h \
 		src/model/dashboardmodel.h \
 		src/view/dashboardview.h \
@@ -493,6 +542,22 @@ moc_appointmentcontroller.cpp: src/controller/appointmentcontroller.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/eli/Qt-Application-Startup-1/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/eli/Qt-Application-Startup-1 -I/home/eli/Qt-Application-Startup-1/include -I/home/eli/Qt-Application-Startup-1/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/controller/appointmentcontroller.h -o moc_appointmentcontroller.cpp
+
+moc_doctorsearchcontroller.cpp: src/controller/doctorsearchcontroller.h \
+		src/model/doctorsearchmodel.h \
+		src/view/doctorsearchview.h \
+		src/view/confirmappointmentview.h \
+		src/model/confirmappointmentmodel.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/eli/Qt-Application-Startup-1/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/eli/Qt-Application-Startup-1 -I/home/eli/Qt-Application-Startup-1/include -I/home/eli/Qt-Application-Startup-1/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/controller/doctorsearchcontroller.h -o moc_doctorsearchcontroller.cpp
+
+moc_confirmappointmentcontroller.cpp: src/controller/confirmappointmentcontroller.h \
+		src/model/confirmappointmentmodel.h \
+		src/view/confirmappointmentview.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/eli/Qt-Application-Startup-1/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/eli/Qt-Application-Startup-1 -I/home/eli/Qt-Application-Startup-1/include -I/home/eli/Qt-Application-Startup-1/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/controller/confirmappointmentcontroller.h -o moc_confirmappointmentcontroller.cpp
 
 moc_telemedicinecontroller.cpp: src/controller/telemedicinecontroller.h \
 		src/model/telemedicinemodel.h \
@@ -529,7 +594,13 @@ main.o: src/main.cpp include/mainwindow.h \
 		src/view/telemedicineview.h \
 		src/controller/appointmentcontroller.h \
 		src/model/appointmentmodel.h \
-		src/view/appointmentview.h
+		src/view/appointmentview.h \
+		src/controller/doctorsearchcontroller.h \
+		src/model/doctorsearchmodel.h \
+		src/view/doctorsearchview.h \
+		src/view/confirmappointmentview.h \
+		src/model/confirmappointmentmodel.h \
+		src/controller/confirmappointmentcontroller.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o src/main.cpp
 
 mainwindow.o: src/mainwindow.cpp include/mainwindow.h \
@@ -544,7 +615,13 @@ mainwindow.o: src/mainwindow.cpp include/mainwindow.h \
 		src/view/telemedicineview.h \
 		src/controller/appointmentcontroller.h \
 		src/model/appointmentmodel.h \
-		src/view/appointmentview.h
+		src/view/appointmentview.h \
+		src/controller/doctorsearchcontroller.h \
+		src/model/doctorsearchmodel.h \
+		src/view/doctorsearchview.h \
+		src/view/confirmappointmentview.h \
+		src/model/confirmappointmentmodel.h \
+		src/controller/confirmappointmentcontroller.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o src/mainwindow.cpp
 
 dashboardmodel.o: src/model/dashboardmodel.cpp src/model/dashboardmodel.h
@@ -558,6 +635,12 @@ telemedicinemodel.o: src/model/telemedicinemodel.cpp src/model/telemedicinemodel
 
 appointmentmodel.o: src/model/appointmentmodel.cpp src/model/appointmentmodel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o appointmentmodel.o src/model/appointmentmodel.cpp
+
+doctorsearchmodel.o: src/model/doctorsearchmodel.cpp src/model/doctorsearchmodel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o doctorsearchmodel.o src/model/doctorsearchmodel.cpp
+
+confirmappointmentmodel.o: src/model/confirmappointmentmodel.cpp src/model/confirmappointmentmodel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o confirmappointmentmodel.o src/model/confirmappointmentmodel.cpp
 
 dashboardview.o: src/view/dashboardview.cpp src/view/dashboardview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dashboardview.o src/view/dashboardview.cpp
@@ -573,6 +656,13 @@ appointmentview.o: src/view/appointmentview.cpp src/view/appointmentview.h \
 		src/model/appointmentmodel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o appointmentview.o src/view/appointmentview.cpp
 
+doctorsearchview.o: src/view/doctorsearchview.cpp src/view/doctorsearchview.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o doctorsearchview.o src/view/doctorsearchview.cpp
+
+confirmappointmentview.o: src/view/confirmappointmentview.cpp src/view/confirmappointmentview.h \
+		src/model/confirmappointmentmodel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o confirmappointmentview.o src/view/confirmappointmentview.cpp
+
 dashboardcontroller.o: src/controller/dashboardcontroller.cpp src/controller/dashboardcontroller.h \
 		src/model/dashboardmodel.h \
 		src/view/dashboardview.h
@@ -587,6 +677,18 @@ appointmentcontroller.o: src/controller/appointmentcontroller.cpp src/controller
 		src/model/appointmentmodel.h \
 		src/view/appointmentview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o appointmentcontroller.o src/controller/appointmentcontroller.cpp
+
+doctorsearchcontroller.o: src/controller/doctorsearchcontroller.cpp src/controller/doctorsearchcontroller.h \
+		src/model/doctorsearchmodel.h \
+		src/view/doctorsearchview.h \
+		src/view/confirmappointmentview.h \
+		src/model/confirmappointmentmodel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o doctorsearchcontroller.o src/controller/doctorsearchcontroller.cpp
+
+confirmappointmentcontroller.o: src/controller/confirmappointmentcontroller.cpp src/controller/confirmappointmentcontroller.h \
+		src/model/confirmappointmentmodel.h \
+		src/view/confirmappointmentview.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o confirmappointmentcontroller.o src/controller/confirmappointmentcontroller.cpp
 
 telemedicinecontroller.o: src/controller/telemedicinecontroller.cpp src/controller/telemedicinecontroller.h \
 		src/model/telemedicinemodel.h \
@@ -611,6 +713,12 @@ moc_telemedicineview.o: moc_telemedicineview.cpp
 moc_appointmentview.o: moc_appointmentview.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_appointmentview.o moc_appointmentview.cpp
 
+moc_doctorsearchview.o: moc_doctorsearchview.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_doctorsearchview.o moc_doctorsearchview.cpp
+
+moc_confirmappointmentview.o: moc_confirmappointmentview.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_confirmappointmentview.o moc_confirmappointmentview.cpp
+
 moc_dashboardcontroller.o: moc_dashboardcontroller.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dashboardcontroller.o moc_dashboardcontroller.cpp
 
@@ -619,6 +727,12 @@ moc_prescriptioncontroller.o: moc_prescriptioncontroller.cpp
 
 moc_appointmentcontroller.o: moc_appointmentcontroller.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_appointmentcontroller.o moc_appointmentcontroller.cpp
+
+moc_doctorsearchcontroller.o: moc_doctorsearchcontroller.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_doctorsearchcontroller.o moc_doctorsearchcontroller.cpp
+
+moc_confirmappointmentcontroller.o: moc_confirmappointmentcontroller.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_confirmappointmentcontroller.o moc_confirmappointmentcontroller.cpp
 
 moc_telemedicinecontroller.o: moc_telemedicinecontroller.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_telemedicinecontroller.o moc_telemedicinecontroller.cpp

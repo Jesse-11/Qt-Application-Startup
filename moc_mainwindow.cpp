@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[6];
-    char stringdata0[77];
+    QByteArrayData data[13];
+    char stringdata0[188];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -37,11 +37,21 @@ QT_MOC_LITERAL(1, 11, 13), // "showDashboard"
 QT_MOC_LITERAL(2, 25, 0), // ""
 QT_MOC_LITERAL(3, 26, 17), // "showPrescriptions"
 QT_MOC_LITERAL(4, 44, 16), // "showTelemedicine"
-QT_MOC_LITERAL(5, 61, 15) // "showAppointment"
+QT_MOC_LITERAL(5, 61, 15), // "showAppointment"
+QT_MOC_LITERAL(6, 77, 16), // "showDoctorSearch"
+QT_MOC_LITERAL(7, 94, 22), // "showConfirmAppointment"
+QT_MOC_LITERAL(8, 117, 6), // "doctor"
+QT_MOC_LITERAL(9, 124, 4), // "date"
+QT_MOC_LITERAL(10, 129, 4), // "time"
+QT_MOC_LITERAL(11, 134, 26), // "handleAppointmentConfirmed"
+QT_MOC_LITERAL(12, 161, 26) // "handleAppointmentCancelled"
 
     },
     "MainWindow\0showDashboard\0\0showPrescriptions\0"
-    "showTelemedicine\0showAppointment"
+    "showTelemedicine\0showAppointment\0"
+    "showDoctorSearch\0showConfirmAppointment\0"
+    "doctor\0date\0time\0handleAppointmentConfirmed\0"
+    "handleAppointmentCancelled"
 };
 #undef QT_MOC_LITERAL
 
@@ -51,7 +61,7 @@ static const uint qt_meta_data_MainWindow[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -59,14 +69,22 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   34,    2, 0x08 /* Private */,
-       3,    0,   35,    2, 0x08 /* Private */,
-       4,    0,   36,    2, 0x08 /* Private */,
-       5,    0,   37,    2, 0x08 /* Private */,
+       1,    0,   54,    2, 0x08 /* Private */,
+       3,    0,   55,    2, 0x08 /* Private */,
+       4,    0,   56,    2, 0x08 /* Private */,
+       5,    0,   57,    2, 0x08 /* Private */,
+       6,    0,   58,    2, 0x08 /* Private */,
+       7,    3,   59,    2, 0x08 /* Private */,
+      11,    0,   66,    2, 0x08 /* Private */,
+      12,    0,   67,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString, QMetaType::QDate, QMetaType::QString,    8,    9,   10,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -83,10 +101,13 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 1: _t->showPrescriptions(); break;
         case 2: _t->showTelemedicine(); break;
         case 3: _t->showAppointment(); break;
+        case 4: _t->showDoctorSearch(); break;
+        case 5: _t->showConfirmAppointment((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< const QDate(*)>(_a[2])),(*reinterpret_cast< const QString(*)>(_a[3]))); break;
+        case 6: _t->handleAppointmentConfirmed(); break;
+        case 7: _t->handleAppointmentCancelled(); break;
         default: ;
         }
     }
-    (void)_a;
 }
 
 QT_INIT_METAOBJECT const QMetaObject MainWindow::staticMetaObject = { {
@@ -118,13 +139,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 8;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 8)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 4;
+        _id -= 8;
     }
     return _id;
 }
