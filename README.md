@@ -1,33 +1,73 @@
 # Medical Application in Qt c++
 
 
+
+-------- Linux ----------
+
 ## How to run The application
 
-1. Make main setup file executale:
-` chmod +x setup.sh `
+1. Run the setup for dependencies:
+` ./manage_app.sh setup `
 
-2. Run the setup file:
-` ./setup.sh `
+2. Build the application using CMake:
+` ./manage_app.sh build `
 
-3. run the application using the wrapper script:
-` ./run_app.sh `
+3. Run the application using Make:
+` ./manage_app.sh run `
+
+4. Clean the application:
+` ./manage_app.sh clean `
+
 
 ## Development Workflow
 
 1. After making changes, rebuild the app
-` make `
+` ./manage_app.sh build`
 
 2. Run the application again:
-` ./run_app.sh `
+` ./manage_app.sh run `
 
 3. To clean up files:
-` make clean ` 
+` ./manage_app.sh clean ` 
 
-4. If changes are made to the .pro file:
-```
-qmake SampleApp.pro 
-make 
-```
+
+
+
+
+--------- Windows ----------
+
+1. Run the setup for dependencies (This should create a .bat file):
+` python3 setup.py `
+
+2. Build the application using CMake:
+` ./manage_app.bat build `
+
+3. Run the application using Make: 
+` ./manage_app.bat run `
+
+4. Clean the application:
+` ./manage_app.bat clean `
+
+* Alt - build and run combined:
+` ./manage_app.bat all `
+
+
+## Development Workflow
+
+1. After making changes, rebuild the app
+` ./manage_app.bat build`
+
+2. Run the application again:
+` ./manage_app.bat run `
+
+3. To clean up files:
+` ./manage_app.bat clean ` 
+
+* Alt - build and run combined:
+` ./manage_app.bat all `
+
+
+
 
 
 ## How do pages connect and transition?

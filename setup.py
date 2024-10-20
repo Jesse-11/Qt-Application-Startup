@@ -4,7 +4,7 @@ import sys
 import platform
 import shutil
 
-# Created Using AI SUPPORT. Multi os install to help mult member collaboration
+# Created Using AI SUPPORT and human modification. Multi os install to help mult member collaboration
 
 def command_exists(cmd):
     return subprocess.call(["which", cmd] if platform.system() != "Windows" else ["where", cmd],
@@ -62,14 +62,71 @@ def install_qt5():
         print(f"Unsupported operating system: {system}")
         sys.exit(1)
 
+def create_windows_batch_file():
+    batch_content = '''
+@echo off
+setlocal enabledelayedexpansion
+
+if "%1"=="setup" (
+    call :setup_app
+) else if "%1"=="build" (
+    call :build_app
+) else if "%1"=="run" (
+    call :run_app
+) else if "%1"=="clean" (
+    call :clean_app
+) else if "%1"=="all" (
+    call :build_app
+    call :run_app
+) else (
+    echo Usage: %0 {setup^|build^|run^|clean^|all}
+    echo   setup: Run initial setup and install dependencies
+    echo   build: Compile the application
+    echo   run: Run the compiled application
+    echo   clean: Clean build files
+    echo   all: Build and run the application
+    exit /b 1
+)
+exit /b 0
+
+:setup_app
+echo Setting up the application...
+python setup.py
+exit /b 0
+
+:build_app
+echo Building the application...
+if not exist build mkdir build
+cd build
+cmake .. -G "MinGW Makefiles"
+mingw32-make
+cd ..
+exit /b 0
+
+:run_app
+echo Running the application...
+.\\build\\SampleApp.exe
+exit /b 0
+
+:clean_app
+echo Cleaning the application...
+if exist build rmdir /s /q build
+if exist CMakeCache.txt del CMakeCache.txt
+if exist CMakeFiles rmdir /s /q CMakeFiles
+exit /b 0
+'''
+    with open('manage_app.bat', 'w') as bat_file:
+        bat_file.write(batch_content)
+
 def grant_execute_permissions():
     if platform.system() != "Windows":
         print("Granting execute permissions to manage_app.sh and clean.sh...")
         subprocess.run(["chmod", "+x", "manage_app.sh"])
         subprocess.run(["chmod", "+x", "clean.sh"])
     else:
-        print("Note: On Windows, .sh files are not directly executable.")
-        print("You may need to run them using a bash shell or convert them to .bat files.")
+        create_windows_batch_file()
+        print("Created manage_app.bat for Windows users.")
+
 
 def main():
     if not command_exists("cmake"):
@@ -86,10 +143,14 @@ def main():
             print("Qt5 installation failed. Please install Qt5 manually and try again.")
             sys.exit(1)
 
-    print("Setup complete. You can now build and run the application using the manage_app.sh script.")
-    print("To build the app run: ./manage_app.sh build")
-    print("To run the app run: ./manage_app.sh run")
-    print("To clean the build directory run: ./manage_app.sh clean")
+    grant_execute_permissions()
+
+    if platform.system() == "Windows":
+        print("Setup complete. You can now use manage_app.bat for building and running the application.")
+        print("Use 'manage_app.bat build' to build, 'manage_app.bat run' to run, and 'manage_app.bat clean' to clean the project.")
+    else:
+        print("Setup complete. You can now use ./manage_app.sh for building and running the application.")
+        print("Use './manage_app.sh build' to build, './manage_app.sh run' to run, and './clean.sh' to clean the project.")
 
 if __name__ == "__main__":
     main()
