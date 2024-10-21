@@ -17,9 +17,8 @@ public:
     TelemedicineController(TelemedicineView* view, QObject* parent = nullptr);
 public slots:
     void loadTelemedicineData();
-
+    void onContactSupportClicked();
 signals:
-    void contactSupport();
     void backToDashboardRequested();
 
 private:
@@ -29,6 +28,7 @@ private:
     void setView(TelemedicineView* view);
     void notifyQueueUpdate();
     void checkAndNotifyConsultationReady();
+
 };
 
 #endif // TELEMEDICINECONTROLLER_H

@@ -33,6 +33,7 @@ private:
     QLabel *doctorNameLabel;
     QLabel *doctorSpecialtyLabel;
     QLabel *preparationLabel;
+    QPushButton *backbutton;
     QPushButton *contactSupportButton;
     QPushButton *settingsButton;
 

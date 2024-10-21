@@ -1,14 +1,17 @@
+
+
+// telemedicinecontroller.cpp
 #include "telemedicinecontroller.h"
-#include "../model/telemedicinemodel.h"
-#include <iostream>
-#include <QString>
-#include <QVector>
+#include <QDebug>
 
 TelemedicineController::TelemedicineController(TelemedicineView* view, QObject* parent)
     : QObject(parent), view(view) {
-    model= new TelemedicineModel();
-    connect(view, &TelemedicineView::contactSupportClicked, this, &TelemedicineController::contactSupport);
+
+     model = new TelemedicineModel(3, 12, "Dr. Jane Smith", "General Practitioner");
+    
     connect(view, &TelemedicineView::backToDashboard, this, &TelemedicineController::backToDashboardRequested);
+    connect(view, &TelemedicineView::contactSupportClicked, this, &TelemedicineController::onContactSupportClicked);
+    
     loadTelemedicineData();
 }
 
@@ -17,6 +20,15 @@ void TelemedicineController::loadTelemedicineData() {
     view->setWaitTimeLabel(QString::number(model->getEstimatedWaitTime()) + " minutes");
     view->setDoctorNameLabel(model->getDoctorName());
     view->setDoctorSpecialtyLabel(model->getDoctorSpecialty());
+    
+    QString preparationSteps;
+    for (const auto& step : model->getPreparationSteps()) {
+        preparationSteps += "• " + step + "\n";
+    }
+    view->setPreparationLabel(preparationSteps);
+}
 
-    QVector<QString> steps = model->getPreparationSteps();
+void TelemedicineController::onContactSupportClicked() {
+    qDebug() << "Contact support clicked";
+    // Implement contact support functionality here
 }

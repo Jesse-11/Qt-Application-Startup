@@ -13,6 +13,7 @@ public:
                       const QString &doctor, const QString &specialty);
 
     
+    
     int getQueuePosition() const;
     int getEstimatedWaitTime() const;
     QString getDoctorName() const;
@@ -29,13 +30,13 @@ public:
 
 private:
     int queuePosition;
-    int estimatedWaitTime; // in minutes
+    int estimatedWaitTime; 
     QString doctorName;
     QString doctorSpecialty;
     QVector<QString> preparationSteps;
 
-    // Helper method
+
     void calculateEstimatedWaitTime();
 };
 
-#endif // TELEMEDICINEMODEL_H
+#endif

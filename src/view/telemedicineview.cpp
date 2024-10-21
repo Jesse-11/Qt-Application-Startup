@@ -4,6 +4,7 @@
 #include <QFrame>
 #include <QPushButton>
 #include <QListWidget>
+#include <QGroupBox>
 
 TelemedicineView::TelemedicineView(QWidget *parent) : QWidget(parent) {
     createLayout();
@@ -11,37 +12,43 @@ TelemedicineView::TelemedicineView(QWidget *parent) : QWidget(parent) {
 
 void TelemedicineView::createLayout() {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setSpacing(20);
+    mainLayout->setContentsMargins(20, 20, 20, 20);
 
     // Header
     QHBoxLayout *headerLayout = new QHBoxLayout();
     titleLabel = new QLabel("Telemedicine Consultation Queue", this);
-    titleLabel->setStyleSheet("font-size: 18px; font-weight: bold;");
-
+    titleLabel->setStyleSheet("font-size: 24px; font-weight: bold;");
+    backbutton = new QPushButton("Back to Dashboard", this);
+    backbutton->setStyleSheet("position: absolute; top: 20px; right: 20px;");
     settingsButton = new QPushButton(this);
     settingsButton->setIcon(QIcon(":resources/images/settings.png"));
     settingsButton->setFixedSize(32, 32);
     settingsButton->setStyleSheet("border: none; background: transparent;");
-
     headerLayout->addWidget(titleLabel);
     headerLayout->addStretch();
+    headerLayout->addWidget(backbutton);
     headerLayout->addWidget(settingsButton);
 
     mainLayout->addLayout(headerLayout);
 
     // Content area
     QHBoxLayout *contentLayout = new QHBoxLayout();
+    contentLayout->setSpacing(20);
 
     // Left column
     QVBoxLayout *leftColumnLayout = new QVBoxLayout();
     leftColumnLayout->addWidget(createEstimatedWaitTimeFrame());
     leftColumnLayout->addWidget(createPrepareConsultationFrame());
-    contentLayout->addLayout(leftColumnLayout);
+    leftColumnLayout->addStretch();
+    contentLayout->addLayout(leftColumnLayout, 2);
 
     // Right column
     QVBoxLayout *rightColumnLayout = new QVBoxLayout();
     rightColumnLayout->addWidget(createYourDoctorFrame());
     rightColumnLayout->addWidget(createNeedAssistanceFrame());
-    contentLayout->addLayout(rightColumnLayout);
+    rightColumnLayout->addStretch();
+    contentLayout->addLayout(rightColumnLayout, 1);
 
     mainLayout->addLayout(contentLayout);
 
@@ -51,13 +58,17 @@ void TelemedicineView::createLayout() {
     footerLabel->setStyleSheet("color: gray;");
     mainLayout->addWidget(footerLabel);
 
+    // Back to Dashboard button
+
     setLayout(mainLayout);
+
+    connect(backbutton, &QPushButton::clicked, this, &TelemedicineView::backToDashboard);
 }
 
 QFrame* TelemedicineView::createEstimatedWaitTimeFrame() {
     QFrame *frame = new QFrame(this);
     frame->setFrameShape(QFrame::StyledPanel);
-    frame->setStyleSheet("QFrame { background-color: white; border-radius: 8px; }");
+    frame->setStyleSheet("QFrame { background-color: white; border-radius: 8px; padding: 16px; }");
 
     QVBoxLayout *layout = new QVBoxLayout(frame);
 
@@ -65,7 +76,7 @@ QFrame* TelemedicineView::createEstimatedWaitTimeFrame() {
     QLabel *clockIcon = new QLabel("🕒", this);
     clockIcon->setStyleSheet("font-size: 18px;");
     QLabel *title = new QLabel("Estimated Wait Time", this);
-    title->setStyleSheet("font-weight: bold;");
+    title->setStyleSheet("font-weight: bold; font-size: 16px;");
     iconAndTitleLayout->addWidget(clockIcon);
     iconAndTitleLayout->addWidget(title);
     iconAndTitleLayout->addStretch();
@@ -88,7 +99,7 @@ QFrame* TelemedicineView::createEstimatedWaitTimeFrame() {
 QFrame* TelemedicineView::createYourDoctorFrame() {
     QFrame *frame = new QFrame(this);
     frame->setFrameShape(QFrame::StyledPanel);
-    frame->setStyleSheet("QFrame { background-color: white; border-radius: 8px; }");
+    frame->setStyleSheet("QFrame { background-color: white; border-radius: 8px; padding: 16px; }");
 
     QVBoxLayout *layout = new QVBoxLayout(frame);
 
@@ -96,7 +107,7 @@ QFrame* TelemedicineView::createYourDoctorFrame() {
     QLabel *doctorIcon = new QLabel("👤", this);
     doctorIcon->setStyleSheet("font-size: 18px;");
     QLabel *title = new QLabel("Your Doctor", this);
-    title->setStyleSheet("font-weight: bold;");
+    title->setStyleSheet("font-weight: bold; font-size: 16px;");
     iconAndTitleLayout->addWidget(doctorIcon);
     iconAndTitleLayout->addWidget(title);
     iconAndTitleLayout->addStretch();
@@ -107,6 +118,7 @@ QFrame* TelemedicineView::createYourDoctorFrame() {
     avatarLabel->setStyleSheet("background-color: lightgray; border-radius: 32px;");
     QVBoxLayout *doctorDetailsLayout = new QVBoxLayout();
     doctorNameLabel = new QLabel("Dr. Jane Smith", this);
+    doctorNameLabel->setStyleSheet("font-weight: bold;");
     doctorSpecialtyLabel = new QLabel("General Practitioner", this);
     doctorSpecialtyLabel->setStyleSheet("color: gray;");
     doctorDetailsLayout->addWidget(doctorNameLabel);
@@ -123,17 +135,17 @@ QFrame* TelemedicineView::createYourDoctorFrame() {
 QFrame* TelemedicineView::createPrepareConsultationFrame() {
     QFrame *frame = new QFrame(this);
     frame->setFrameShape(QFrame::StyledPanel);
-    frame->setStyleSheet("QFrame { background-color: white; border-radius: 8px; }");
+    frame->setStyleSheet("QFrame { background-color: white; border-radius: 8px; padding: 16px; }");
 
     QVBoxLayout *layout = new QVBoxLayout(frame);
 
     QHBoxLayout *iconAndTitleLayout = new QHBoxLayout();
     QLabel *prepareIcon = new QLabel("📋", this);
     prepareIcon->setStyleSheet("font-size: 18px;");
-    preparationLabel = new QLabel("Prepare for Your Consultation", this);
-    preparationLabel->setStyleSheet("font-weight: bold;");
+    QLabel *title = new QLabel("Prepare for Your Consultation", this);
+    title->setStyleSheet("font-weight: bold; font-size: 16px;");
     iconAndTitleLayout->addWidget(prepareIcon);
-    iconAndTitleLayout->addWidget(preparationLabel);
+    iconAndTitleLayout->addWidget(title);
     iconAndTitleLayout->addStretch();
 
     QListWidget *prepStepsList = new QListWidget(this);
@@ -141,7 +153,7 @@ QFrame* TelemedicineView::createPrepareConsultationFrame() {
     prepStepsList->addItem("Find a quiet, well-lit space for your consultation");
     prepStepsList->addItem("Have your medical history and current medications list ready");
     prepStepsList->addItem("Prepare any questions you want to ask your doctor");
-    prepStepsList->setStyleSheet("QListWidget { border: none; }");
+    prepStepsList->setStyleSheet("QListWidget { border: none; background: transparent; }");
 
     layout->addLayout(iconAndTitleLayout);
     layout->addWidget(prepStepsList);
@@ -152,18 +164,18 @@ QFrame* TelemedicineView::createPrepareConsultationFrame() {
 QFrame* TelemedicineView::createNeedAssistanceFrame() {
     QFrame *frame = new QFrame(this);
     frame->setFrameShape(QFrame::StyledPanel);
-    frame->setStyleSheet("QFrame { background-color: white; border-radius: 8px; }");
+    frame->setStyleSheet("QFrame { background-color: white; border-radius: 8px; padding: 16px; }");
 
     QVBoxLayout *layout = new QVBoxLayout(frame);
 
     QLabel *title = new QLabel("Need Assistance?", this);
-    title->setStyleSheet("font-weight: bold;");
+    title->setStyleSheet("font-weight: bold; font-size: 16px;");
 
     QLabel *assistanceText = new QLabel("If you're experiencing technical difficulties or need to reschedule:", this);
     assistanceText->setWordWrap(true);
 
     contactSupportButton = new QPushButton("Contact Support", this);
-    contactSupportButton->setStyleSheet("background-color: #333; color: white; padding: 10px;");
+    contactSupportButton->setStyleSheet("background-color: #333; color: white; padding: 10px; border-radius: 5px;");
 
     layout->addWidget(title);
     layout->addWidget(assistanceText);
@@ -171,10 +183,9 @@ QFrame* TelemedicineView::createNeedAssistanceFrame() {
 
     return frame;
 }
-
 void TelemedicineView::setQueuePositionLabel(const QString& text) {
     if (queuePositionLabel) {
-        queuePositionLabel->setText(text);
+        queuePositionLabel->setText("Your position in queue: " + text);
     }
 }
 
