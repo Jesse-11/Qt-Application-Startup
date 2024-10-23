@@ -25,8 +25,10 @@ private slots:
     void showAppointment();
     void showDoctorSearch();
     void showConfirmAppointment(const QString &doctor, const QDate &date, const QString &time);
+    void showConsultation();
     void handleAppointmentConfirmed();
     void handleAppointmentCancelled();
+    void handleConsultationEnded();
     void showLanguageSelection();
     void onLanguageChanged(const QString& languageCode);
 

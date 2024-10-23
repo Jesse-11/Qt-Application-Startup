@@ -1,9 +1,17 @@
 #include "telemedicinemodel.h"
-#include <algorithm> // for std::max
+#include <algorithm>
+
+TelemedicineModel::TelemedicineModel(QObject *parent)
+    : QObject(parent)
+{
+    setupTimers();
+}
 
 TelemedicineModel::TelemedicineModel(int initialQueuePosition, int initialWaitTime,
-                                     const QString &doctor, const QString &specialty)
-    : queuePosition(std::max(0, initialQueuePosition)),
+                                   const QString &doctor, const QString &specialty,
+                                   QObject *parent)
+    : QObject(parent),
+      queuePosition(std::max(0, initialQueuePosition)),
       estimatedWaitTime(initialWaitTime),
       doctorName(doctor),
       doctorSpecialty(specialty),
@@ -14,9 +22,49 @@ TelemedicineModel::TelemedicineModel(int initialQueuePosition, int initialWaitTi
           "Prepare any questions you want to ask your doctor"
       })
 {
+    setupTimers();
     calculateEstimatedWaitTime();
 }
 
+void TelemedicineModel::setupTimers() {
+    queueTimer = new QTimer(this);
+    consultationTimer = new QTimer(this);
+    
+    queueTimer->setInterval(30000);  // 30 seconds
+    consultationTimer->setInterval(5000);  // 5 seconds
+    
+    connect(queueTimer, &QTimer::timeout, this, &TelemedicineModel::onQueueTimerTimeout);
+    connect(consultationTimer, &QTimer::timeout, this, &TelemedicineModel::onConsultationTimerTimeout);
+    
+    // Make consultation timer single-shot
+    consultationTimer->setSingleShot(true);
+}
+
+void TelemedicineModel::onQueueTimerTimeout() {
+    if (queuePosition > 0) {
+        moveUpInQueue();
+        emit queuePositionChanged(queuePosition);
+        emit estimatedWaitTimeChanged(estimatedWaitTime);
+        
+        if (queuePosition == 0) {
+            queueTimer->stop();
+            consultationTimer->start();
+        }
+    }
+}
+
+void TelemedicineModel::onConsultationTimerTimeout() {
+    emit consultationReady();
+}
+
+void TelemedicineModel::startQueueTimer() {
+    queueTimer->start();
+}
+
+void TelemedicineModel::stopQueueTimer() {
+    queueTimer->stop();
+    consultationTimer->stop();
+}
 int TelemedicineModel::getQueuePosition() const { return queuePosition; }
 int TelemedicineModel::getEstimatedWaitTime() const { return estimatedWaitTime; }
 QString TelemedicineModel::getDoctorName() const { return doctorName; }
@@ -42,3 +90,4 @@ bool TelemedicineModel::isReadyForConsultation() const {
 void TelemedicineModel::calculateEstimatedWaitTime() {
     estimatedWaitTime = queuePosition * 4;
 }
+

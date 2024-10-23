@@ -3,32 +3,40 @@
 
 #include "../model/telemedicinemodel.h"
 #include "../view/telemedicineview.h"
+#include "../controller/consultationcontroller.h"
+#include "../view/consultationview.h"
 #include <QString>
 #include <QVector>
 #include <functional>
 #include <QObject>
 
-class TelemedicineView;  // Forward declaration
 
 class TelemedicineController : public QObject {
     Q_OBJECT
 
 public:
-    TelemedicineController(TelemedicineView* view, QObject* parent = nullptr);
-public slots:
-    void loadTelemedicineData();
-    void onContactSupportClicked();
+    TelemedicineController(TelemedicineView* view, 
+                          ConsultationView* consultView,
+                          QObject* parent = nullptr);
+
 signals:
+    void consultationEnded();
+    void consultationReady();
+public slots:
     void backToDashboardRequested();
 
+private slots:
+    void handleQueuePositionChanged(int newPosition);
+    void handleEstimatedWaitTimeChanged(int newTime);
+    void handleConsultationReady();
+    void onContactSupportClicked();
+
 private:
+    TelemedicineModel* model;
     TelemedicineView* view;
-    TelemedicineModel* model;  
-
-    void setView(TelemedicineView* view);
-    void notifyQueueUpdate();
-    void checkAndNotifyConsultationReady();
-
+    ConsultationController* consultationController;
+    void loadTelemedicineData();
+    void setupModelConnections();
 };
 
-#endif // TELEMEDICINECONTROLLER_H
+#endif

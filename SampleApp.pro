@@ -14,6 +14,7 @@ SOURCES += \
     src/model/doctorsearchmodel.cpp \
     src/model/confirmappointmentmodel.cpp \
     src/model/languageselectionmodel.cpp \
+    src/model/consultationmodel.cpp \
     src/view/dashboardview.cpp \
     src/view/prescriptionview.cpp \
     src/view/telemedicineview.cpp \
@@ -21,13 +22,16 @@ SOURCES += \
     src/view/doctorsearchview.cpp \
     src/view/confirmappointmentview.cpp \
     src/view/languageselectionview.cpp \
+    src/view/consultationview.cpp \
     src/controller/dashboardcontroller.cpp \
     src/controller/prescriptioncontroller.cpp \
     src/controller/appointmentcontroller.cpp \
     src/controller/doctorsearchcontroller.cpp \
     src/controller/confirmappointmentcontroller.cpp \
     src/controller/languageselectioncontroller.cpp \
-    src/controller/telemedicinecontroller.cpp
+    src/controller/telemedicinecontroller.cpp \
+    src/controller/consultationcontroller.cpp
+
 
 HEADERS += \
     include/mainwindow.h \
@@ -38,6 +42,7 @@ HEADERS += \
     src/model/doctorsearchmodel.h \
     src/model/confirmappointmentmodel.h \
     src/model/languageselectionmodel.h \
+    src/model/consultationmodel.h \
     src/view/dashboardview.h \
     src/view/prescriptionview.h \
     src/view/telemedicineview.h \
@@ -45,13 +50,15 @@ HEADERS += \
     src/view/doctorsearchview.h \
     src/view/confirmappointmentview.h \
     src/view/languageselectionview.h \
+    src/view/consultationview.h \
     src/controller/dashboardcontroller.h \
     src/controller/prescriptioncontroller.h \
     src/controller/appointmentcontroller.h \
     src/controller/doctorsearchcontroller.h \
     src/controller/confirmappointmentcontroller.h \
     src/controller/languageselectioncontroller.h \
-    src/controller/telemedicinecontroller.h
+    src/controller/telemedicinecontroller.h \
+    src/controller/consultationcontroller.h
 RESOURCES += resources.qrc
 
 INCLUDEPATH += \
