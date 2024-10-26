@@ -1,0 +1,15 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource prefix="/icons">
+        <file>smartphone.svg</file>
+        <file>smartwatch.svg</file>
+        <file>scale.svg</file>
+        <file>thermometer.svg</file>
+        <file>device.svg</file>
+        <!-- Health metric icons -->
+        <file>heart.svg</file>
+        <file>steps.svg</file>
+        <file>weight.svg</file>
+        <file>sleep.svg</file>
+    </qresource>
+</RCC>

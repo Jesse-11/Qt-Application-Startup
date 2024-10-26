@@ -19,6 +19,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     DoctorSearchView *doctorsearchView = new DoctorSearchView(this);
     confirmappointmentView = new ConfirmAppointmentView(this);
     LanguageSelectionView *languageselectionView = new LanguageSelectionView(this);
+    HealthDataView *healthdataview = new HealthDataView(this);
+
+
     // Create Controllers
     dashboardController = new DashboardController(new DashboardModel(), dashboardView, this);
     prescriptionController = new PrescriptionController(prescriptionView, this);
@@ -27,6 +30,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     doctorsearchController = new DoctorSearchController(doctorsearchView, this);
     confirmappointmentController = new ConfirmAppointmentController(confirmappointmentView, this);
     languageselectionController = new LanguageSelectionController(languageselectionModel, languageselectionView, this);
+    healthdataController = new HealthDataController(healthdataview, this);
+
 
     // Add views to stacked widget
     stackedWidget->addWidget(dashboardView);
@@ -37,6 +42,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     stackedWidget->addWidget(confirmappointmentView);
     stackedWidget->addWidget(languageselectionView);
     stackedWidget->addWidget(consultationView);
+    stackedWidget->addWidget(healthdataview);
 
 
     // Connect signals
@@ -44,11 +50,13 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     connect(dashboardController, &DashboardController::telemedicineRequested, this, &MainWindow::showTelemedicine);
     connect(dashboardController, &DashboardController::appointmentRequested, this, &MainWindow::showAppointment);
     connect(dashboardController, &DashboardController::languageSelectionRequested, this, &MainWindow::showLanguageSelection);
+    connect(dashboardController, &DashboardController::profileRequested, this, &MainWindow::showProfile);
 
     connect(prescriptionController, &PrescriptionController::backToDashboardRequested, this, &MainWindow::showDashboard);
     connect(telemedicineController, &TelemedicineController::backToDashboardRequested, this, &MainWindow::showDashboard);
     connect(telemedicineController, &TelemedicineController::consultationReady, this, &MainWindow::showConsultation);
     connect(telemedicineController, &TelemedicineController::consultationEnded,this, &MainWindow::handleConsultationEnded);
+    connect(healthdataController, &HealthDataController::backToDashboardRequested, this, &MainWindow::showDashboard);
     connect(appointmentController, &AppointmentController::backToDashboardRequested, this, &MainWindow::showDashboard);
     connect(appointmentController, &AppointmentController::backToDashboardRequested, this, &MainWindow::showDashboard);
     connect(appointmentController, &AppointmentController::doctorSearchRequested, this, &MainWindow::showDoctorSearch);
@@ -82,6 +90,7 @@ void MainWindow::showPrescriptions() {
 
 void MainWindow::showTelemedicine() {
     stackedWidget->setCurrentIndex(2);
+    telemedicineController->startTimer();
 }
 
 void MainWindow::showAppointment() {
@@ -96,7 +105,14 @@ void MainWindow::showLanguageSelection() {
     stackedWidget->setCurrentIndex(6);  
 }
 void MainWindow::showConsultation() {
-    stackedWidget->setCurrentIndex(7);
+    if(stackedWidget->currentIndex() == 2)
+    {
+        stackedWidget->setCurrentIndex(7);
+    }
+    
+}
+void MainWindow::showProfile(){
+    stackedWidget->setCurrentIndex(8);
 }
 
 void MainWindow::showConfirmAppointment(const QString &doctor, const QDate &date, const QString &time) {

@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_NO_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -O2 -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -O2 -std=gnu++1z -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I. -Iinclude -Isrc -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++
+INCPATH       = -I. -Iinclude -Isrc -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++
 QMAKE         = /usr/lib/qt5/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = SampleApp1.0.0
 DISTDIR = /root/Qt-Application-Startup/.tmp/SampleApp1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1
-LIBS          = $(SUBLIBS) /usr/lib/x86_64-linux-gnu/libQt5Widgets.so /usr/lib/x86_64-linux-gnu/libQt5Gui.so /usr/lib/x86_64-linux-gnu/libQt5Core.so -lGL -lpthread   
+LIBS          = $(SUBLIBS) -L/usr/lib/x86_64-linux-gnu -lQt5Charts /usr/lib/x86_64-linux-gnu/libQt5Charts.so /usr/lib/x86_64-linux-gnu/libQt5Widgets.so /usr/lib/x86_64-linux-gnu/libQt5Gui.so /usr/lib/x86_64-linux-gnu/libQt5Core.so -lGL -lpthread   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -62,6 +62,7 @@ SOURCES       = src/main.cpp \
 		src/model/confirmappointmentmodel.cpp \
 		src/model/languageselectionmodel.cpp \
 		src/model/consultationmodel.cpp \
+		src/model/healthdatamodel.cpp \
 		src/view/dashboardview.cpp \
 		src/view/prescriptionview.cpp \
 		src/view/telemedicineview.cpp \
@@ -70,6 +71,7 @@ SOURCES       = src/main.cpp \
 		src/view/confirmappointmentview.cpp \
 		src/view/languageselectionview.cpp \
 		src/view/consultationview.cpp \
+		src/view/healthdataview.cpp \
 		src/controller/dashboardcontroller.cpp \
 		src/controller/prescriptioncontroller.cpp \
 		src/controller/appointmentcontroller.cpp \
@@ -77,10 +79,12 @@ SOURCES       = src/main.cpp \
 		src/controller/confirmappointmentcontroller.cpp \
 		src/controller/languageselectioncontroller.cpp \
 		src/controller/telemedicinecontroller.cpp \
-		src/controller/consultationcontroller.cpp qrc_resources.cpp \
+		src/controller/consultationcontroller.cpp \
+		src/controller/healthdatacontroller.cpp qrc_resources.cpp \
 		moc_mainwindow.cpp \
 		moc_telemedicinemodel.cpp \
 		moc_consultationmodel.cpp \
+		moc_healthdatamodel.cpp \
 		moc_dashboardview.cpp \
 		moc_prescriptionview.cpp \
 		moc_telemedicineview.cpp \
@@ -89,6 +93,7 @@ SOURCES       = src/main.cpp \
 		moc_confirmappointmentview.cpp \
 		moc_languageselectionview.cpp \
 		moc_consultationview.cpp \
+		moc_healthdataview.cpp \
 		moc_dashboardcontroller.cpp \
 		moc_prescriptioncontroller.cpp \
 		moc_appointmentcontroller.cpp \
@@ -96,7 +101,8 @@ SOURCES       = src/main.cpp \
 		moc_confirmappointmentcontroller.cpp \
 		moc_languageselectioncontroller.cpp \
 		moc_telemedicinecontroller.cpp \
-		moc_consultationcontroller.cpp
+		moc_consultationcontroller.cpp \
+		moc_healthdatacontroller.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		dashboardmodel.o \
@@ -107,6 +113,7 @@ OBJECTS       = main.o \
 		confirmappointmentmodel.o \
 		languageselectionmodel.o \
 		consultationmodel.o \
+		healthdatamodel.o \
 		dashboardview.o \
 		prescriptionview.o \
 		telemedicineview.o \
@@ -115,6 +122,7 @@ OBJECTS       = main.o \
 		confirmappointmentview.o \
 		languageselectionview.o \
 		consultationview.o \
+		healthdataview.o \
 		dashboardcontroller.o \
 		prescriptioncontroller.o \
 		appointmentcontroller.o \
@@ -123,10 +131,12 @@ OBJECTS       = main.o \
 		languageselectioncontroller.o \
 		telemedicinecontroller.o \
 		consultationcontroller.o \
+		healthdatacontroller.o \
 		qrc_resources.o \
 		moc_mainwindow.o \
 		moc_telemedicinemodel.o \
 		moc_consultationmodel.o \
+		moc_healthdatamodel.o \
 		moc_dashboardview.o \
 		moc_prescriptionview.o \
 		moc_telemedicineview.o \
@@ -135,6 +145,7 @@ OBJECTS       = main.o \
 		moc_confirmappointmentview.o \
 		moc_languageselectionview.o \
 		moc_consultationview.o \
+		moc_healthdataview.o \
 		moc_dashboardcontroller.o \
 		moc_prescriptioncontroller.o \
 		moc_appointmentcontroller.o \
@@ -142,7 +153,8 @@ OBJECTS       = main.o \
 		moc_confirmappointmentcontroller.o \
 		moc_languageselectioncontroller.o \
 		moc_telemedicinecontroller.o \
-		moc_consultationcontroller.o
+		moc_consultationcontroller.o \
+		moc_healthdatacontroller.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -154,6 +166,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/qconfig.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_accessibility_support_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_bootstrap_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_charts.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_core.pri \
@@ -229,6 +242,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		src/model/confirmappointmentmodel.h \
 		src/model/languageselectionmodel.h \
 		src/model/consultationmodel.h \
+		src/model/healthdatamodel.h \
 		src/view/dashboardview.h \
 		src/view/prescriptionview.h \
 		src/view/telemedicineview.h \
@@ -237,6 +251,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		src/view/confirmappointmentview.h \
 		src/view/languageselectionview.h \
 		src/view/consultationview.h \
+		src/view/healthdataview.h \
 		src/controller/dashboardcontroller.h \
 		src/controller/prescriptioncontroller.h \
 		src/controller/appointmentcontroller.h \
@@ -244,7 +259,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		src/controller/confirmappointmentcontroller.h \
 		src/controller/languageselectioncontroller.h \
 		src/controller/telemedicinecontroller.h \
-		src/controller/consultationcontroller.h src/main.cpp \
+		src/controller/consultationcontroller.h \
+		src/controller/healthdatacontroller.h src/main.cpp \
 		src/mainwindow.cpp \
 		src/model/dashboardmodel.cpp \
 		src/model/prescriptionmodel.cpp \
@@ -254,6 +270,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		src/model/confirmappointmentmodel.cpp \
 		src/model/languageselectionmodel.cpp \
 		src/model/consultationmodel.cpp \
+		src/model/healthdatamodel.cpp \
 		src/view/dashboardview.cpp \
 		src/view/prescriptionview.cpp \
 		src/view/telemedicineview.cpp \
@@ -262,6 +279,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		src/view/confirmappointmentview.cpp \
 		src/view/languageselectionview.cpp \
 		src/view/consultationview.cpp \
+		src/view/healthdataview.cpp \
 		src/controller/dashboardcontroller.cpp \
 		src/controller/prescriptioncontroller.cpp \
 		src/controller/appointmentcontroller.cpp \
@@ -269,7 +287,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		src/controller/confirmappointmentcontroller.cpp \
 		src/controller/languageselectioncontroller.cpp \
 		src/controller/telemedicinecontroller.cpp \
-		src/controller/consultationcontroller.cpp
+		src/controller/consultationcontroller.cpp \
+		src/controller/healthdatacontroller.cpp
 QMAKE_TARGET  = SampleApp
 DESTDIR       = 
 TARGET        = SampleApp
@@ -292,6 +311,7 @@ Makefile: SampleApp.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.co
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/qconfig.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_accessibility_support_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_bootstrap_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_charts.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_core.pri \
@@ -359,7 +379,8 @@ Makefile: SampleApp.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.co
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		SampleApp.pro \
-		resources.qrc
+		resources.qrc \
+		/usr/lib/x86_64-linux-gnu/libQt5Charts.prl
 	$(QMAKE) -o Makefile SampleApp.pro
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf:
@@ -372,6 +393,7 @@ Makefile: SampleApp.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.co
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/qconfig.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_accessibility_support_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_bootstrap_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_charts.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_core.pri:
@@ -440,6 +462,7 @@ Makefile: SampleApp.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.co
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf:
 SampleApp.pro:
 resources.qrc:
+/usr/lib/x86_64-linux-gnu/libQt5Charts.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile SampleApp.pro
 
@@ -456,8 +479,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents include/mainwindow.h src/model/dashboardmodel.h src/model/prescriptionmodel.h src/model/telemedicinemodel.h src/model/appointmentmodel.h src/model/doctorsearchmodel.h src/model/confirmappointmentmodel.h src/model/languageselectionmodel.h src/model/consultationmodel.h src/view/dashboardview.h src/view/prescriptionview.h src/view/telemedicineview.h src/view/appointmentview.h src/view/doctorsearchview.h src/view/confirmappointmentview.h src/view/languageselectionview.h src/view/consultationview.h src/controller/dashboardcontroller.h src/controller/prescriptioncontroller.h src/controller/appointmentcontroller.h src/controller/doctorsearchcontroller.h src/controller/confirmappointmentcontroller.h src/controller/languageselectioncontroller.h src/controller/telemedicinecontroller.h src/controller/consultationcontroller.h $(DISTDIR)/
-	$(COPY_FILE) --parents src/main.cpp src/mainwindow.cpp src/model/dashboardmodel.cpp src/model/prescriptionmodel.cpp src/model/telemedicinemodel.cpp src/model/appointmentmodel.cpp src/model/doctorsearchmodel.cpp src/model/confirmappointmentmodel.cpp src/model/languageselectionmodel.cpp src/model/consultationmodel.cpp src/view/dashboardview.cpp src/view/prescriptionview.cpp src/view/telemedicineview.cpp src/view/appointmentview.cpp src/view/doctorsearchview.cpp src/view/confirmappointmentview.cpp src/view/languageselectionview.cpp src/view/consultationview.cpp src/controller/dashboardcontroller.cpp src/controller/prescriptioncontroller.cpp src/controller/appointmentcontroller.cpp src/controller/doctorsearchcontroller.cpp src/controller/confirmappointmentcontroller.cpp src/controller/languageselectioncontroller.cpp src/controller/telemedicinecontroller.cpp src/controller/consultationcontroller.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents include/mainwindow.h src/model/dashboardmodel.h src/model/prescriptionmodel.h src/model/telemedicinemodel.h src/model/appointmentmodel.h src/model/doctorsearchmodel.h src/model/confirmappointmentmodel.h src/model/languageselectionmodel.h src/model/consultationmodel.h src/model/healthdatamodel.h src/view/dashboardview.h src/view/prescriptionview.h src/view/telemedicineview.h src/view/appointmentview.h src/view/doctorsearchview.h src/view/confirmappointmentview.h src/view/languageselectionview.h src/view/consultationview.h src/view/healthdataview.h src/controller/dashboardcontroller.h src/controller/prescriptioncontroller.h src/controller/appointmentcontroller.h src/controller/doctorsearchcontroller.h src/controller/confirmappointmentcontroller.h src/controller/languageselectioncontroller.h src/controller/telemedicinecontroller.h src/controller/consultationcontroller.h src/controller/healthdatacontroller.h $(DISTDIR)/
+	$(COPY_FILE) --parents src/main.cpp src/mainwindow.cpp src/model/dashboardmodel.cpp src/model/prescriptionmodel.cpp src/model/telemedicinemodel.cpp src/model/appointmentmodel.cpp src/model/doctorsearchmodel.cpp src/model/confirmappointmentmodel.cpp src/model/languageselectionmodel.cpp src/model/consultationmodel.cpp src/model/healthdatamodel.cpp src/view/dashboardview.cpp src/view/prescriptionview.cpp src/view/telemedicineview.cpp src/view/appointmentview.cpp src/view/doctorsearchview.cpp src/view/confirmappointmentview.cpp src/view/languageselectionview.cpp src/view/consultationview.cpp src/view/healthdataview.cpp src/controller/dashboardcontroller.cpp src/controller/prescriptioncontroller.cpp src/controller/appointmentcontroller.cpp src/controller/doctorsearchcontroller.cpp src/controller/confirmappointmentcontroller.cpp src/controller/languageselectioncontroller.cpp src/controller/telemedicinecontroller.cpp src/controller/consultationcontroller.cpp src/controller/healthdatacontroller.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -499,9 +522,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -O2 -std=gnu++1z -Wall -Wextra -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_telemedicinemodel.cpp moc_consultationmodel.cpp moc_dashboardview.cpp moc_prescriptionview.cpp moc_telemedicineview.cpp moc_appointmentview.cpp moc_doctorsearchview.cpp moc_confirmappointmentview.cpp moc_languageselectionview.cpp moc_consultationview.cpp moc_dashboardcontroller.cpp moc_prescriptioncontroller.cpp moc_appointmentcontroller.cpp moc_doctorsearchcontroller.cpp moc_confirmappointmentcontroller.cpp moc_languageselectioncontroller.cpp moc_telemedicinecontroller.cpp moc_consultationcontroller.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_telemedicinemodel.cpp moc_consultationmodel.cpp moc_healthdatamodel.cpp moc_dashboardview.cpp moc_prescriptionview.cpp moc_telemedicineview.cpp moc_appointmentview.cpp moc_doctorsearchview.cpp moc_confirmappointmentview.cpp moc_languageselectionview.cpp moc_consultationview.cpp moc_healthdataview.cpp moc_dashboardcontroller.cpp moc_prescriptioncontroller.cpp moc_appointmentcontroller.cpp moc_doctorsearchcontroller.cpp moc_confirmappointmentcontroller.cpp moc_languageselectioncontroller.cpp moc_telemedicinecontroller.cpp moc_consultationcontroller.cpp moc_healthdatacontroller.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_telemedicinemodel.cpp moc_consultationmodel.cpp moc_dashboardview.cpp moc_prescriptionview.cpp moc_telemedicineview.cpp moc_appointmentview.cpp moc_doctorsearchview.cpp moc_confirmappointmentview.cpp moc_languageselectionview.cpp moc_consultationview.cpp moc_dashboardcontroller.cpp moc_prescriptioncontroller.cpp moc_appointmentcontroller.cpp moc_doctorsearchcontroller.cpp moc_confirmappointmentcontroller.cpp moc_languageselectioncontroller.cpp moc_telemedicinecontroller.cpp moc_consultationcontroller.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_telemedicinemodel.cpp moc_consultationmodel.cpp moc_healthdatamodel.cpp moc_dashboardview.cpp moc_prescriptionview.cpp moc_telemedicineview.cpp moc_appointmentview.cpp moc_doctorsearchview.cpp moc_confirmappointmentview.cpp moc_languageselectionview.cpp moc_consultationview.cpp moc_healthdataview.cpp moc_dashboardcontroller.cpp moc_prescriptioncontroller.cpp moc_appointmentcontroller.cpp moc_doctorsearchcontroller.cpp moc_confirmappointmentcontroller.cpp moc_languageselectioncontroller.cpp moc_telemedicinecontroller.cpp moc_consultationcontroller.cpp moc_healthdatacontroller.cpp
 moc_mainwindow.cpp: include/mainwindow.h \
 		src/controller/dashboardcontroller.h \
 		src/model/dashboardmodel.h \
@@ -527,83 +550,97 @@ moc_mainwindow.cpp: include/mainwindow.h \
 		src/controller/languageselectioncontroller.h \
 		src/model/languageselectionmodel.h \
 		src/view/languageselectionview.h \
+		src/controller/healthdatacontroller.h \
+		src/model/healthdatamodel.h \
+		src/view/healthdataview.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include include/mainwindow.h -o moc_mainwindow.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include include/mainwindow.h -o moc_mainwindow.cpp
 
 moc_telemedicinemodel.cpp: src/model/telemedicinemodel.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/model/telemedicinemodel.h -o moc_telemedicinemodel.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/model/telemedicinemodel.h -o moc_telemedicinemodel.cpp
 
 moc_consultationmodel.cpp: src/model/consultationmodel.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/model/consultationmodel.h -o moc_consultationmodel.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/model/consultationmodel.h -o moc_consultationmodel.cpp
+
+moc_healthdatamodel.cpp: src/model/healthdatamodel.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/model/healthdatamodel.h -o moc_healthdatamodel.cpp
 
 moc_dashboardview.cpp: src/view/dashboardview.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/view/dashboardview.h -o moc_dashboardview.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/view/dashboardview.h -o moc_dashboardview.cpp
 
 moc_prescriptionview.cpp: src/view/prescriptionview.h \
 		src/model/prescriptionmodel.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/view/prescriptionview.h -o moc_prescriptionview.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/view/prescriptionview.h -o moc_prescriptionview.cpp
 
 moc_telemedicineview.cpp: src/view/telemedicineview.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/view/telemedicineview.h -o moc_telemedicineview.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/view/telemedicineview.h -o moc_telemedicineview.cpp
 
 moc_appointmentview.cpp: src/view/appointmentview.h \
 		src/model/appointmentmodel.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/view/appointmentview.h -o moc_appointmentview.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/view/appointmentview.h -o moc_appointmentview.cpp
 
 moc_doctorsearchview.cpp: src/view/doctorsearchview.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/view/doctorsearchview.h -o moc_doctorsearchview.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/view/doctorsearchview.h -o moc_doctorsearchview.cpp
 
 moc_confirmappointmentview.cpp: src/view/confirmappointmentview.h \
 		src/model/confirmappointmentmodel.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/view/confirmappointmentview.h -o moc_confirmappointmentview.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/view/confirmappointmentview.h -o moc_confirmappointmentview.cpp
 
 moc_languageselectionview.cpp: src/view/languageselectionview.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/view/languageselectionview.h -o moc_languageselectionview.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/view/languageselectionview.h -o moc_languageselectionview.cpp
 
 moc_consultationview.cpp: src/view/consultationview.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/view/consultationview.h -o moc_consultationview.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/view/consultationview.h -o moc_consultationview.cpp
+
+moc_healthdataview.cpp: src/view/healthdataview.h \
+		src/model/healthdatamodel.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/view/healthdataview.h -o moc_healthdataview.cpp
 
 moc_dashboardcontroller.cpp: src/controller/dashboardcontroller.h \
 		src/model/dashboardmodel.h \
 		src/view/dashboardview.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/controller/dashboardcontroller.h -o moc_dashboardcontroller.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/controller/dashboardcontroller.h -o moc_dashboardcontroller.cpp
 
 moc_prescriptioncontroller.cpp: src/controller/prescriptioncontroller.h \
 		src/model/prescriptionmodel.h \
 		src/view/prescriptionview.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/controller/prescriptioncontroller.h -o moc_prescriptioncontroller.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/controller/prescriptioncontroller.h -o moc_prescriptioncontroller.cpp
 
 moc_appointmentcontroller.cpp: src/controller/appointmentcontroller.h \
 		src/model/appointmentmodel.h \
 		src/view/appointmentview.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/controller/appointmentcontroller.h -o moc_appointmentcontroller.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/controller/appointmentcontroller.h -o moc_appointmentcontroller.cpp
 
 moc_doctorsearchcontroller.cpp: src/controller/doctorsearchcontroller.h \
 		src/model/doctorsearchmodel.h \
@@ -612,21 +649,21 @@ moc_doctorsearchcontroller.cpp: src/controller/doctorsearchcontroller.h \
 		src/model/confirmappointmentmodel.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/controller/doctorsearchcontroller.h -o moc_doctorsearchcontroller.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/controller/doctorsearchcontroller.h -o moc_doctorsearchcontroller.cpp
 
 moc_confirmappointmentcontroller.cpp: src/controller/confirmappointmentcontroller.h \
 		src/model/confirmappointmentmodel.h \
 		src/view/confirmappointmentview.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/controller/confirmappointmentcontroller.h -o moc_confirmappointmentcontroller.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/controller/confirmappointmentcontroller.h -o moc_confirmappointmentcontroller.cpp
 
 moc_languageselectioncontroller.cpp: src/controller/languageselectioncontroller.h \
 		src/model/languageselectionmodel.h \
 		src/view/languageselectionview.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/controller/languageselectioncontroller.h -o moc_languageselectioncontroller.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/controller/languageselectioncontroller.h -o moc_languageselectioncontroller.cpp
 
 moc_telemedicinecontroller.cpp: src/controller/telemedicinecontroller.h \
 		src/model/telemedicinemodel.h \
@@ -634,16 +671,25 @@ moc_telemedicinecontroller.cpp: src/controller/telemedicinecontroller.h \
 		src/controller/consultationcontroller.h \
 		src/model/consultationmodel.h \
 		src/view/consultationview.h \
+		src/controller/dashboardcontroller.h \
+		src/model/dashboardmodel.h \
+		src/view/dashboardview.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/controller/telemedicinecontroller.h -o moc_telemedicinecontroller.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/controller/telemedicinecontroller.h -o moc_telemedicinecontroller.cpp
 
 moc_consultationcontroller.cpp: src/controller/consultationcontroller.h \
 		src/model/consultationmodel.h \
 		src/view/consultationview.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/controller/consultationcontroller.h -o moc_consultationcontroller.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/controller/consultationcontroller.h -o moc_consultationcontroller.cpp
+
+moc_healthdatacontroller.cpp: src/controller/healthdatacontroller.h \
+		src/model/healthdatamodel.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /root/Qt-Application-Startup/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/root/Qt-Application-Startup -I/root/Qt-Application-Startup/include -I/root/Qt-Application-Startup/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/controller/healthdatacontroller.h -o moc_healthdatacontroller.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -685,7 +731,10 @@ main.o: src/main.cpp include/mainwindow.h \
 		src/controller/confirmappointmentcontroller.h \
 		src/controller/languageselectioncontroller.h \
 		src/model/languageselectionmodel.h \
-		src/view/languageselectionview.h
+		src/view/languageselectionview.h \
+		src/controller/healthdatacontroller.h \
+		src/model/healthdatamodel.h \
+		src/view/healthdataview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o src/main.cpp
 
 mainwindow.o: src/mainwindow.cpp include/mainwindow.h \
@@ -712,7 +761,10 @@ mainwindow.o: src/mainwindow.cpp include/mainwindow.h \
 		src/controller/confirmappointmentcontroller.h \
 		src/controller/languageselectioncontroller.h \
 		src/model/languageselectionmodel.h \
-		src/view/languageselectionview.h
+		src/view/languageselectionview.h \
+		src/controller/healthdatacontroller.h \
+		src/model/healthdatamodel.h \
+		src/view/healthdataview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o src/mainwindow.cpp
 
 dashboardmodel.o: src/model/dashboardmodel.cpp src/model/dashboardmodel.h
@@ -738,6 +790,9 @@ languageselectionmodel.o: src/model/languageselectionmodel.cpp src/model/languag
 
 consultationmodel.o: src/model/consultationmodel.cpp src/model/consultationmodel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o consultationmodel.o src/model/consultationmodel.cpp
+
+healthdatamodel.o: src/model/healthdatamodel.cpp src/model/healthdatamodel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o healthdatamodel.o src/model/healthdatamodel.cpp
 
 dashboardview.o: src/view/dashboardview.cpp src/view/dashboardview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dashboardview.o src/view/dashboardview.cpp
@@ -765,6 +820,11 @@ languageselectionview.o: src/view/languageselectionview.cpp src/view/languagesel
 
 consultationview.o: src/view/consultationview.cpp src/view/consultationview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o consultationview.o src/view/consultationview.cpp
+
+healthdataview.o: src/view/healthdataview.cpp src/view/healthdataview.h \
+		src/model/healthdatamodel.h \
+		src/controller/healthdatacontroller.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o healthdataview.o src/view/healthdataview.cpp
 
 dashboardcontroller.o: src/controller/dashboardcontroller.cpp src/controller/dashboardcontroller.h \
 		src/model/dashboardmodel.h \
@@ -803,13 +863,21 @@ telemedicinecontroller.o: src/controller/telemedicinecontroller.cpp src/controll
 		src/view/telemedicineview.h \
 		src/controller/consultationcontroller.h \
 		src/model/consultationmodel.h \
-		src/view/consultationview.h
+		src/view/consultationview.h \
+		src/controller/dashboardcontroller.h \
+		src/model/dashboardmodel.h \
+		src/view/dashboardview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o telemedicinecontroller.o src/controller/telemedicinecontroller.cpp
 
 consultationcontroller.o: src/controller/consultationcontroller.cpp src/controller/consultationcontroller.h \
 		src/model/consultationmodel.h \
 		src/view/consultationview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o consultationcontroller.o src/controller/consultationcontroller.cpp
+
+healthdatacontroller.o: src/controller/healthdatacontroller.cpp src/controller/healthdatacontroller.h \
+		src/model/healthdatamodel.h \
+		src/view/healthdataview.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o healthdatacontroller.o src/controller/healthdatacontroller.cpp
 
 qrc_resources.o: qrc_resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resources.o qrc_resources.cpp
@@ -822,6 +890,9 @@ moc_telemedicinemodel.o: moc_telemedicinemodel.cpp
 
 moc_consultationmodel.o: moc_consultationmodel.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_consultationmodel.o moc_consultationmodel.cpp
+
+moc_healthdatamodel.o: moc_healthdatamodel.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_healthdatamodel.o moc_healthdatamodel.cpp
 
 moc_dashboardview.o: moc_dashboardview.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dashboardview.o moc_dashboardview.cpp
@@ -847,6 +918,9 @@ moc_languageselectionview.o: moc_languageselectionview.cpp
 moc_consultationview.o: moc_consultationview.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_consultationview.o moc_consultationview.cpp
 
+moc_healthdataview.o: moc_healthdataview.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_healthdataview.o moc_healthdataview.cpp
+
 moc_dashboardcontroller.o: moc_dashboardcontroller.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dashboardcontroller.o moc_dashboardcontroller.cpp
 
@@ -870,6 +944,9 @@ moc_telemedicinecontroller.o: moc_telemedicinecontroller.cpp
 
 moc_consultationcontroller.o: moc_consultationcontroller.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_consultationcontroller.o moc_consultationcontroller.cpp
+
+moc_healthdatacontroller.o: moc_healthdatacontroller.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_healthdatacontroller.o moc_healthdatacontroller.cpp
 
 ####### Install
 

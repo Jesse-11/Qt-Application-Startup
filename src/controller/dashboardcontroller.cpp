@@ -11,6 +11,7 @@ DashboardController::DashboardController(DashboardModel *model, DashboardView *v
     connect(view, &DashboardView::viewRecordsClicked, this, &DashboardController::onViewRecordsClicked);
     connect(view, &DashboardView::refillPrescriptionClicked, this, &DashboardController::onRefillPrescriptionClicked);
     connect(view, &DashboardView::languageButtonClicked, this, &DashboardController::onLanguageButtonClicked);
+    connect(view, &DashboardView::profileClicked, this, &DashboardController::onProfileClicked);
 }
 
 void DashboardController::updateView() {
@@ -45,4 +46,9 @@ void DashboardController::onViewRecordsClicked() {
 void DashboardController::onRefillPrescriptionClicked() {
     qDebug() << "Refill Prescription clicked";
     emit prescriptionsRequested();
+}
+
+void DashboardController::onProfileClicked() {
+    qDebug() << "Profile clicked";
+    emit profileRequested();
 }

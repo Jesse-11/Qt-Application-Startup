@@ -17,10 +17,8 @@ TelemedicineController::TelemedicineController(TelemedicineView* view,
             this, &TelemedicineController::backToDashboardRequested);
     connect(view, &TelemedicineView::contactSupportClicked, 
             this, &TelemedicineController::onContactSupportClicked);
-
     setupModelConnections();
     loadTelemedicineData();
-    model->startQueueTimer();
 }
 
 void TelemedicineController::setupModelConnections() {
@@ -43,9 +41,9 @@ void TelemedicineController::loadTelemedicineData() {
         preparationSteps += "• " + step + "\n";
     }
     view->setPreparationLabel(preparationSteps);
+
 }
 
-// Add these new implementations
 void TelemedicineController::handleQueuePositionChanged(int newPosition) {
     qDebug() << "Queue position updated to:" << newPosition;
     view->setQueuePositionLabel(QString::number(newPosition));
@@ -65,7 +63,6 @@ void TelemedicineController::handleConsultationReady() {
 
 void TelemedicineController::backToDashboardRequested() {
     model->stopQueueTimer();
-    // Make sure to clean up both views
     view->hide();
     emit consultationEnded();
 }
@@ -75,3 +72,6 @@ void TelemedicineController::onContactSupportClicked() {
     // Implement support functionality
 }
 
+void TelemedicineController::startTimer() {
+    model->startQueueTimer();
+}

@@ -8,6 +8,8 @@
 #include "../src/controller/doctorsearchcontroller.h"
 #include "../src/controller/confirmappointmentcontroller.h"
 #include "../src/controller/languageselectioncontroller.h"
+#include "../src/controller/healthdatacontroller.h"
+#include "../src/view/healthdataview.h" 
 #include <QDebug>
 
 
@@ -26,6 +28,7 @@ private slots:
     void showDoctorSearch();
     void showConfirmAppointment(const QString &doctor, const QDate &date, const QString &time);
     void showConsultation();
+    void showProfile();
     void handleAppointmentConfirmed();
     void handleAppointmentCancelled();
     void handleConsultationEnded();
@@ -44,4 +47,5 @@ private:
     LanguageSelectionController* languageselectionController;
     LanguageSelectionModel *languageselectionModel;
     LanguageSelectionView *languageselectionView;
+    HealthDataController *healthdataController;
 };

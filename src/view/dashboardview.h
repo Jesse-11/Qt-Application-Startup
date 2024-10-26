@@ -21,6 +21,7 @@ signals:
     void refillPrescriptionClicked();
     void languageSelectionClicked();
     void languageButtonClicked();
+    void profileClicked();
 
 private:
     QLabel *welcomeLabel;

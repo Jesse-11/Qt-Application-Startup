@@ -5,6 +5,7 @@
 #include "../view/telemedicineview.h"
 #include "../controller/consultationcontroller.h"
 #include "../view/consultationview.h"
+#include "../controller/dashboardcontroller.h"
 #include <QString>
 #include <QVector>
 #include <functional>
@@ -18,6 +19,7 @@ public:
     TelemedicineController(TelemedicineView* view, 
                           ConsultationView* consultView,
                           QObject* parent = nullptr);
+    void startTimer();
 
 signals:
     void consultationEnded();

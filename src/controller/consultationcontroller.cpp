@@ -4,8 +4,8 @@
 
 ConsultationController::ConsultationController(ConsultationView* view, QObject* parent)
     : QObject(parent)
-    , view(view)
-    , model(new ConsultationModel(this))
+    , model(new ConsultationModel(this))  // Initialize model first
+    , view(view)                          // Initialize view second
 {
     setupConnections();
     updateButtonStates();

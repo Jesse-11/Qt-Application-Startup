@@ -17,6 +17,7 @@ signals:
     void telemedicineRequested();  
     void appointmentRequested();
     void languageSelectionRequested();
+    void profileRequested();
 
 private slots:
     void onStartConsultationClicked();
@@ -25,6 +26,7 @@ private slots:
     void onViewRecordsClicked();
     void onRefillPrescriptionClicked();
     void onLanguageButtonClicked();
+    void onProfileClicked();
 
 private:
     DashboardModel *model;
