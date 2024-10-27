@@ -37,7 +37,7 @@ private slots:
     void onRemoveButtonClicked();
 
 private:
-    void createTabWidget();
+
     QWidget* createAnalyticsTab();
     QWidget* createDevicesTab();
     void createMetricCards();
