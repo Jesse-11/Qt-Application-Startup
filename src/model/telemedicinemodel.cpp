@@ -36,7 +36,6 @@ void TelemedicineModel::setupTimers() {
     connect(queueTimer, &QTimer::timeout, this, &TelemedicineModel::onQueueTimerTimeout);
     connect(consultationTimer, &QTimer::timeout, this, &TelemedicineModel::onConsultationTimerTimeout);
     
-    // Make consultation timer single-shot
     consultationTimer->setSingleShot(true);
 }
 

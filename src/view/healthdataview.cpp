@@ -41,12 +41,11 @@ void HealthDataView::refreshView() {
     qDebug() << "Refreshing view with controller:" << (controller ? "valid" : "null");
     if (!controller) return;
 
-    // Clear existing tabs
     while (tabWidget->count() > 0) {
         tabWidget->removeTab(0);
     }
 
-    // Create new tabs
+    
     tabWidget->addTab(createAnalyticsTab(), "Health Analytics");
     tabWidget->addTab(createDevicesTab(), "Connected Devices");
 }
@@ -57,7 +56,7 @@ QWidget* HealthDataView::createAnalyticsTab() {
     mainLayout->setSpacing(20);
     mainLayout->setContentsMargins(16, 16, 16, 16);
     
-    // Back Button Container (Top bar)
+    
     QFrame* topBar = new QFrame();
     topBar->setStyleSheet(
         "QFrame {"
@@ -67,7 +66,7 @@ QWidget* HealthDataView::createAnalyticsTab() {
         "}"
     );
     QHBoxLayout* topBarLayout = new QHBoxLayout(topBar);
-    topBarLayout->setContentsMargins(0, 0, 0, 10);  // Reduced bottom margin
+    topBarLayout->setContentsMargins(0, 0, 0, 10);  
     
     QPushButton* backButton = new QPushButton("← Back to Dashboard");
     backButton->setStyleSheet(
@@ -76,7 +75,7 @@ QWidget* HealthDataView::createAnalyticsTab() {
         "   border: none;"
         "   border-radius: 4px;"
         "   padding: 8px 16px;"
-        "   color: #2196F3;"  // Blue color
+        "   color: #2196F3;"  
         "   font-weight: bold;"
         "   font-size: 14px;"
         "   text-align: left;"
@@ -90,10 +89,9 @@ QWidget* HealthDataView::createAnalyticsTab() {
     topBarLayout->addWidget(backButton);
     topBarLayout->addStretch();
     
-    // Add top bar to main layout
+
     mainLayout->addWidget(topBar);
     
-    // Header with title
     QHBoxLayout* headerLayout = new QHBoxLayout();
     QLabel* titleLabel = new QLabel("Health Data Overview");
     titleLabel->setStyleSheet(
@@ -113,7 +111,6 @@ QWidget* HealthDataView::createAnalyticsTab() {
     headerLayout->addWidget(detailsLink);
     mainLayout->addLayout(headerLayout);
     
-    // Rest of your existing content (metrics cards, chart, etc.)
     if (controller) {
         // Metrics Cards
         auto metrics = controller->getLatestMetrics();
@@ -186,7 +183,7 @@ void HealthDataView::createChart() {
         return;
     }
 
-    // Get data
+   
     auto weeklyData = controller->getWeeklyData();
     qDebug() << "Retrieved" << weeklyData.size() << "data points for chart";
 
@@ -333,7 +330,6 @@ QWidget* HealthDataView::createDevicesTab() {
     return devicesTab;
 }
 
-// Implement other methods...
 
 QWidget* HealthDataView::createDeviceItem(const ConnectedDevice& device) {
     QFrame* frame = new QFrame();
@@ -413,7 +409,7 @@ QWidget* HealthDataView::createDeviceItem(const ConnectedDevice& device) {
     return frame;
 }
 
-// Add these implementations:
+
 void HealthDataView::onSyncButtonClicked() {
     QPushButton* button = qobject_cast<QPushButton*>(sender());
     if (button) {
@@ -445,11 +441,10 @@ QWidget* HealthDataView::createMetricCard(const QString& title, const QString& v
     
     QVBoxLayout* cardLayout = new QVBoxLayout(card);
     cardLayout->setSpacing(4);
-    
-    // Icon and title in horizontal layout
+
     QHBoxLayout* headerLayout = new QHBoxLayout();
     QLabel* iconLabel = new QLabel();
-    // You'll need to add icons to your resources
+
     QPixmap icon(iconPath);
     if (!icon.isNull()) {
         iconLabel->setPixmap(icon.scaled(20, 20, Qt::KeepAspectRatio, Qt::SmoothTransformation));
@@ -477,18 +472,17 @@ QWidget* HealthDataView::createMetricCard(const QString& title, const QString& v
 
 
 void HealthDataView::refreshDevicesList(const QVector<ConnectedDevice>& devices) {
-    // Find the devices tab
-    QWidget* devicesTab = tabWidget->widget(1);  // Assuming it's the second tab
+
+    QWidget* devicesTab = tabWidget->widget(1);  
     if (!devicesTab) return;
 
     QScrollArea* scrollArea = devicesTab->findChild<QScrollArea*>();
     if (!scrollArea) return;
 
-    // Create new container for devices
+
     QWidget* container = new QWidget();
     QVBoxLayout* layout = new QVBoxLayout(container);
     
-    // Add each device
     for (const auto& device : devices) {
         layout->addWidget(createDeviceItem(device));
     }
@@ -499,20 +493,20 @@ void HealthDataView::refreshDevicesList(const QVector<ConnectedDevice>& devices)
 }
 
 void HealthDataView::updateMetricsDisplay(const HealthMetric& metrics) {
-    QWidget* analyticsTab = tabWidget->widget(0);  // Assuming it's the first tab
+    QWidget* analyticsTab = tabWidget->widget(0);  
     if (!analyticsTab) return;
 
-    // Find the cards layout
+
     QHBoxLayout* cardsLayout = analyticsTab->findChild<QHBoxLayout*>();
     if (!cardsLayout) return;
 
-    // Clear existing cards
+   
     while (QLayoutItem* item = cardsLayout->takeAt(0)) {
         delete item->widget();
         delete item;
     }
 
-    // Add new metric cards
+   
     cardsLayout->addWidget(createMetricCard("Heart Rate", 
         QString::number(metrics.heartRate, 'f', 0) + " bpm",
         "Average last 7 days", ":/icons/heart.svg"));
@@ -531,22 +525,22 @@ void HealthDataView::updateMetricsDisplay(const HealthMetric& metrics) {
 void HealthDataView::updateChartData(const QVector<HealthMetric>& weeklyData) {
     if (!heartRateSeries || !stepsSeries || !sleepSeries) return;
 
-    // Clear existing data
+    
     heartRateSeries->clear();
     stepsSeries->clear();
     sleepSeries->clear();
 
-    // Add new data points
+   
     for (const auto& metric : weeklyData) {
         qreal timestamp = metric.date.startOfDay().toMSecsSinceEpoch();
         heartRateSeries->append(timestamp, metric.heartRate);
-        stepsSeries->append(timestamp, metric.steps / 100.0); // Scale for visibility
-        sleepSeries->append(timestamp, metric.sleepHours * 10); // Scale for visibility
+        stepsSeries->append(timestamp, metric.steps / 100.0); 
+        sleepSeries->append(timestamp, metric.sleepHours * 10); 
     }
 }
 
 QString HealthDataView::getDeviceTypeIcon(const QString& deviceType) {
-    // Map device types to their respective icon paths
+    
     if (deviceType.toLower() == "smartphone") {
         return ":/icons/smartphone.svg";
     }
@@ -560,7 +554,7 @@ QString HealthDataView::getDeviceTypeIcon(const QString& deviceType) {
         return ":/icons/thermometer.svg";
     }
     
-    // Return a default icon if device type is unknown
+   
     return ":/icons/device.svg";
 }
 

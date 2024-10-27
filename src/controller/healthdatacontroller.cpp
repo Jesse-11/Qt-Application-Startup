@@ -5,13 +5,12 @@ HealthDataController::HealthDataController(HealthDataView* view, QObject* parent
     : QObject(parent)
     , view(view)
 {
-    // Create model
     model = new HealthDataModel(this);
     
-    // Set controller in view
+
     view->setController(this);
 
-    // Connect view signals
+    
     connect(view, &HealthDataView::backRequested,
             this, &HealthDataController::backToDashboardRequested);
     connect(view, &HealthDataView::deviceSyncRequested,
@@ -19,7 +18,6 @@ HealthDataController::HealthDataController(HealthDataView* view, QObject* parent
     connect(view, &HealthDataView::deviceRemoveRequested,
             this, &HealthDataController::removeDevice);
 
-    // Initialize with data
     updateAllViewData();
 }
 

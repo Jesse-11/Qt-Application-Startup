@@ -3,7 +3,6 @@
 #include <QDateTime>
 
 HealthDataModel::HealthDataModel(QObject *parent) : QObject(parent) {
-    // Initialize random seed
     qsrand(QDateTime::currentDateTime().toSecsSinceEpoch());
     qDebug() << "Initializing HealthDataModel...";
     initializeSampleData();
@@ -14,7 +13,7 @@ void HealthDataModel::initializeSampleData() {
     QDate currentDate = QDate::currentDate();
     qDebug() << "Creating sample data starting from:" << currentDate;
     
-    m_weeklyData.clear(); // Clear any existing data
+    m_weeklyData.clear(); 
     
     for (int i = 6; i >= 0; --i) {
         HealthMetric metric;
@@ -37,7 +36,7 @@ void HealthDataModel::initializeSampleData() {
 
 void HealthDataModel::initializeSampleDevices() {
     qDebug() << "Initializing sample devices...";
-    m_connectedDevices.clear(); // Clear existing devices
+    m_connectedDevices.clear(); 
 
     ConnectedDevice phone;
     phone.type = "Smartphone";

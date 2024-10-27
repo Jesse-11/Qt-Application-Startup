@@ -7,7 +7,7 @@
 #include <QTimer>
 
 class TelemedicineModel : public QObject {
-    Q_OBJECT  // Required for signals and slots
+    Q_OBJECT  
 
 public:
     TelemedicineModel(QObject *parent = nullptr);

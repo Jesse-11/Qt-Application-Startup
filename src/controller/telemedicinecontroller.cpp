@@ -10,7 +10,6 @@ TelemedicineController::TelemedicineController(TelemedicineView* view,
     model = new TelemedicineModel(3, 12, "Dr. Jane Smith", "General Practitioner", this);
     consultationController = new ConsultationController(consultView, this);
     
-    // Connect consultation end signal
     connect(consultationController, &ConsultationController::consultationEnded,
             this, &TelemedicineController::backToDashboardRequested);
     connect(view, &TelemedicineView::backToDashboard, 
@@ -69,7 +68,6 @@ void TelemedicineController::backToDashboardRequested() {
 
 void TelemedicineController::onContactSupportClicked() {
     qDebug() << "Contact support clicked";
-    // Implement support functionality
 }
 
 void TelemedicineController::startTimer() {

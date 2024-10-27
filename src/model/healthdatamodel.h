@@ -6,7 +6,6 @@
 #include <QDate>
 #include <QString>
 
-// Make structs globally accessible with Q_GADGET
 class HealthMetric {
     Q_GADGET
 public:
