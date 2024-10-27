@@ -5,17 +5,38 @@ command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
 
+# Function to check if Qt Charts is installed on Debian
+check_qt_charts_debian() {
+    dpkg -l | grep -q libqt5charts5-dev
+    return $?
+}
+
 # Function to install Qt on Debian-based systems
 install_qt_debian() {
     echo "Installing Qt..."
     sudo apt-get update
-    sudo apt-get install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools
+    sudo apt-get install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools libqt5charts5-dev
     
     # Check if installation was successful
     if ! command_exists qmake; then
         echo "Qt installation failed. Please install manually using the following commands:"
         echo "sudo apt-get update"
-        echo "sudo apt-get install qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools"
+        echo "sudo apt-get install qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools libqt5charts5-dev"
+        return 1
+    fi
+    return 0
+}
+
+# Function to install Qt Charts on Debian
+install_qt_charts_debian() {
+    echo "Installing Qt Charts..."
+    sudo apt-get update
+    sudo apt-get install -y libqt5charts5-dev
+    
+    # Verify charts installation
+    if ! check_qt_charts_debian; then
+        echo "Qt Charts installation failed. Please install manually using:"
+        echo "sudo apt-get install libqt5charts5-dev"
         return 1
     fi
     return 0
@@ -24,12 +45,12 @@ install_qt_debian() {
 # Function to install Qt on Red Hat-based systems
 install_qt_redhat() {
     echo "Installing Qt..."
-    sudo dnf install -y qt5-qtbase-devel
+    sudo dnf install -y qt5-qtbase-devel qt5-qtcharts-devel
     
     # Check if installation was successful
     if ! command_exists qmake; then
         echo "Qt installation failed. Please install manually using the following command:"
-        echo "sudo dnf install qt5-qtbase-devel"
+        echo "sudo dnf install qt5-qtbase-devel qt5-qtcharts-devel"
         return 1
     fi
     return 0
@@ -45,6 +66,14 @@ if command_exists apt-get; then
         echo "Qt is already installed."
     fi
 
+
+    # Always check for Qt Charts, even if Qt is installed
+    if ! check_qt_charts_debian; then
+        install_qt_charts_debian || exit 1
+    else
+        echo "Qt Charts is already installed."
+    fi
+    
 elif command_exists dnf; then
     echo "Red Hat-based system detected."
     
