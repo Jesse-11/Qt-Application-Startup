@@ -1,0 +1,343 @@
+{
+	"BUILD_DIR" : "/root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen",
+	"CMAKE_BINARY_DIR" : "/root/2024-Y2-S2/Qt-Application-Startup/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/root/2024-Y2-S2/Qt-Application-Startup/build",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/root/2024-Y2-S2/Qt-Application-Startup",
+	"CMAKE_EXECUTABLE" : "/usr/bin/cmake",
+	"CMAKE_LIST_FILES" : 
+	[
+		"/root/2024-Y2-S2/Qt-Application-Startup/CMakeLists.txt",
+		"/root/2024-Y2-S2/Qt-Application-Startup/build/CMakeFiles/3.22.1/CMakeSystem.cmake",
+		"/usr/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake",
+		"/root/2024-Y2-S2/Qt-Application-Startup/build/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake",
+		"/usr/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake",
+		"/usr/share/cmake-3.22/Modules/CMakeGenericSystem.cmake",
+		"/usr/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake",
+		"/usr/share/cmake-3.22/Modules/Platform/Linux.cmake",
+		"/usr/share/cmake-3.22/Modules/Platform/UnixPaths.cmake",
+		"/usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake",
+		"/usr/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake",
+		"/usr/share/cmake-3.22/Modules/Compiler/GNU-CXX.cmake",
+		"/usr/share/cmake-3.22/Modules/Compiler/GNU.cmake",
+		"/usr/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake",
+		"/usr/share/cmake-3.22/Modules/Platform/Linux-GNU-CXX.cmake",
+		"/usr/share/cmake-3.22/Modules/Platform/Linux-GNU.cmake",
+		"/usr/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5Config.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ModuleLocation.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtras.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreMacros.cmake",
+		"/usr/share/cmake-3.22/Modules/CMakeParseArguments.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QComposePlatformInputContextPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSEmulatorIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSKmsEglDeviceIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSKmsGbmIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSX11IntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevKeyboardPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevMousePlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevTabletPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevTouchScreenPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QGifPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QICOPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QIbusPlatformInputContextPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QJpegPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QLibInputPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QLinuxFbIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QMinimalEglIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QMinimalIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QOffscreenIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QTuioTouchPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QVncIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbEglIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbGlxIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake",
+		"/usr/share/cmake-3.22/Modules/CMakeParseArguments.cmake",
+		"/root/2024-Y2-S2/Qt-Application-Startup/resources.qrc"
+	],
+	"CMAKE_SOURCE_DIR" : "/root/2024-Y2-S2/Qt-Application-Startup",
+	"DEP_FILE" : "",
+	"DEP_FILE_RULE_NAME" : "",
+	"HEADERS" : 
+	[
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/include/mainwindow.h",
+			"MU",
+			"6YEA5652QU/moc_mainwindow.cpp",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/controller/appointmentcontroller.h",
+			"MU",
+			"KECQXMYYOW/moc_appointmentcontroller.cpp",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/controller/confirmappointmentcontroller.h",
+			"MU",
+			"KECQXMYYOW/moc_confirmappointmentcontroller.cpp",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/controller/dashboardcontroller.h",
+			"MU",
+			"KECQXMYYOW/moc_dashboardcontroller.cpp",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/controller/doctorsearchcontroller.h",
+			"MU",
+			"KECQXMYYOW/moc_doctorsearchcontroller.cpp",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/controller/prescriptioncontroller.h",
+			"MU",
+			"KECQXMYYOW/moc_prescriptioncontroller.cpp",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/controller/telemedicinecontroller.h",
+			"MU",
+			"KECQXMYYOW/moc_telemedicinecontroller.cpp",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/model/appointmentmodel.h",
+			"MU",
+			"VNQA4LF4BW/moc_appointmentmodel.cpp",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/model/confirmappointmentmodel.h",
+			"MU",
+			"VNQA4LF4BW/moc_confirmappointmentmodel.cpp",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/model/dashboardmodel.h",
+			"MU",
+			"VNQA4LF4BW/moc_dashboardmodel.cpp",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/model/doctorsearchmodel.h",
+			"MU",
+			"VNQA4LF4BW/moc_doctorsearchmodel.cpp",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/model/prescriptionmodel.h",
+			"MU",
+			"VNQA4LF4BW/moc_prescriptionmodel.cpp",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/model/telemedicinemodel.h",
+			"MU",
+			"VNQA4LF4BW/moc_telemedicinemodel.cpp",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/view/appointmentview.h",
+			"MU",
+			"3JYSCEOBDA/moc_appointmentview.cpp",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/view/confirmappointmentview.h",
+			"MU",
+			"3JYSCEOBDA/moc_confirmappointmentview.cpp",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/view/dashboardview.h",
+			"MU",
+			"3JYSCEOBDA/moc_dashboardview.cpp",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/view/doctorsearchview.h",
+			"MU",
+			"3JYSCEOBDA/moc_doctorsearchview.cpp",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/view/prescriptionview.h",
+			"MU",
+			"3JYSCEOBDA/moc_prescriptionview.cpp",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/view/telemedicineview.h",
+			"MU",
+			"3JYSCEOBDA/moc_telemedicineview.cpp",
+			null
+		]
+	],
+	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
+	"INCLUDE_DIR" : "/root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/include",
+	"MOC_COMPILATION_FILE" : "/root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/mocs_compilation.cpp",
+	"MOC_DEFINITIONS" : [ "QT_CORE_LIB", "QT_GUI_LIB", "QT_WIDGETS_LIB" ],
+	"MOC_DEPEND_FILTERS" : 
+	[
+		[
+			"Q_PLUGIN_METADATA",
+			"[\n][ \t]*Q_PLUGIN_METADATA[ \t]*\\([^\\)]*FILE[ \t]*\"([^\"]+)\""
+		]
+	],
+	"MOC_INCLUDES" : 
+	[
+		"/root/2024-Y2-S2/Qt-Application-Startup/include",
+		"/root/2024-Y2-S2/Qt-Application-Startup/src",
+		"/usr/include/x86_64-linux-gnu/qt5",
+		"/usr/include/x86_64-linux-gnu/qt5/QtCore",
+		"/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++",
+		"/usr/include/x86_64-linux-gnu/qt5/QtGui",
+		"/usr/include/x86_64-linux-gnu/qt5/QtWidgets",
+		"/usr/include/c++/11",
+		"/usr/include/x86_64-linux-gnu/c++/11",
+		"/usr/include/c++/11/backward",
+		"/usr/lib/gcc/x86_64-linux-gnu/11/include",
+		"/usr/local/include",
+		"/usr/include/x86_64-linux-gnu",
+		"/usr/include"
+	],
+	"MOC_MACRO_NAMES" : [ "Q_OBJECT", "Q_GADGET", "Q_NAMESPACE", "Q_NAMESPACE_EXPORT" ],
+	"MOC_OPTIONS" : [],
+	"MOC_PATH_PREFIX" : false,
+	"MOC_PREDEFS_CMD" : 
+	[
+		"/usr/bin/g++",
+		"-dM",
+		"-E",
+		"-c",
+		"/usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp"
+	],
+	"MOC_PREDEFS_FILE" : "/root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/moc_predefs.h",
+	"MOC_RELAXED_MODE" : false,
+	"MOC_SKIP" : [],
+	"MULTI_CONFIG" : false,
+	"PARALLEL" : 8,
+	"PARSE_CACHE_FILE" : "/root/2024-Y2-S2/Qt-Application-Startup/build/CMakeFiles/SampleApp_autogen.dir/ParseCache.txt",
+	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
+	"QT_UIC_EXECUTABLE" : "/usr/lib/qt5/bin/uic",
+	"QT_VERSION_MAJOR" : 5,
+	"QT_VERSION_MINOR" : 15,
+	"SETTINGS_FILE" : "/root/2024-Y2-S2/Qt-Application-Startup/build/CMakeFiles/SampleApp_autogen.dir/AutogenUsed.txt",
+	"SOURCES" : 
+	[
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/controller/appointmentcontroller.cpp",
+			"MU",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/controller/confirmappointmentcontroller.cpp",
+			"MU",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/controller/dashboardcontroller.cpp",
+			"MU",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/controller/doctorsearchcontroller.cpp",
+			"MU",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/controller/prescriptioncontroller.cpp",
+			"MU",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/controller/telemedicinecontroller.cpp",
+			"MU",
+			null
+		],
+		[ "/root/2024-Y2-S2/Qt-Application-Startup/src/main.cpp", "MU", null ],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/mainwindow.cpp",
+			"MU",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/model/appointmentmodel.cpp",
+			"MU",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/model/confirmappointmentmodel.cpp",
+			"MU",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/model/dashboardmodel.cpp",
+			"MU",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/model/doctorsearchmodel.cpp",
+			"MU",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/model/prescriptionmodel.cpp",
+			"MU",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/model/telemedicinemodel.cpp",
+			"MU",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/view/appointmentview.cpp",
+			"MU",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/view/confirmappointmentview.cpp",
+			"MU",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/view/dashboardview.cpp",
+			"MU",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/view/doctorsearchview.cpp",
+			"MU",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/view/prescriptionview.cpp",
+			"MU",
+			null
+		],
+		[
+			"/root/2024-Y2-S2/Qt-Application-Startup/src/view/telemedicineview.cpp",
+			"MU",
+			null
+		]
+	],
+	"UIC_OPTIONS" : [],
+	"UIC_SEARCH_PATHS" : [],
+	"UIC_SKIP" : [],
+	"UIC_UI_FILES" : [],
+	"VERBOSITY" : 0
+}

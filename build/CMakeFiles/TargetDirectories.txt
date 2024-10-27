@@ -1,0 +1,9 @@
+/root/2024-Y2-S2/Qt-Application-Startup/build/CMakeFiles/SampleApp.dir
+/root/2024-Y2-S2/Qt-Application-Startup/build/CMakeFiles/clean-all.dir
+/root/2024-Y2-S2/Qt-Application-Startup/build/CMakeFiles/edit_cache.dir
+/root/2024-Y2-S2/Qt-Application-Startup/build/CMakeFiles/rebuild_cache.dir
+/root/2024-Y2-S2/Qt-Application-Startup/build/CMakeFiles/list_install_components.dir
+/root/2024-Y2-S2/Qt-Application-Startup/build/CMakeFiles/install.dir
+/root/2024-Y2-S2/Qt-Application-Startup/build/CMakeFiles/install/local.dir
+/root/2024-Y2-S2/Qt-Application-Startup/build/CMakeFiles/install/strip.dir
+/root/2024-Y2-S2/Qt-Application-Startup/build/CMakeFiles/SampleApp_autogen.dir

@@ -1,0 +1,112 @@
+[
+{
+  "directory": "/root/2024-Y2-S2/Qt-Application-Startup/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/include -I/root/2024-Y2-S2/Qt-Application-Startup/include -I/root/2024-Y2-S2/Qt-Application-Startup/src -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -std=gnu++17 -o CMakeFiles/SampleApp.dir/SampleApp_autogen/mocs_compilation.cpp.o -c /root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/mocs_compilation.cpp",
+  "file": "/root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/mocs_compilation.cpp"
+},
+{
+  "directory": "/root/2024-Y2-S2/Qt-Application-Startup/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/include -I/root/2024-Y2-S2/Qt-Application-Startup/include -I/root/2024-Y2-S2/Qt-Application-Startup/src -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -std=gnu++17 -o CMakeFiles/SampleApp.dir/src/controller/appointmentcontroller.cpp.o -c /root/2024-Y2-S2/Qt-Application-Startup/src/controller/appointmentcontroller.cpp",
+  "file": "/root/2024-Y2-S2/Qt-Application-Startup/src/controller/appointmentcontroller.cpp"
+},
+{
+  "directory": "/root/2024-Y2-S2/Qt-Application-Startup/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/include -I/root/2024-Y2-S2/Qt-Application-Startup/include -I/root/2024-Y2-S2/Qt-Application-Startup/src -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -std=gnu++17 -o CMakeFiles/SampleApp.dir/src/controller/confirmappointmentcontroller.cpp.o -c /root/2024-Y2-S2/Qt-Application-Startup/src/controller/confirmappointmentcontroller.cpp",
+  "file": "/root/2024-Y2-S2/Qt-Application-Startup/src/controller/confirmappointmentcontroller.cpp"
+},
+{
+  "directory": "/root/2024-Y2-S2/Qt-Application-Startup/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/include -I/root/2024-Y2-S2/Qt-Application-Startup/include -I/root/2024-Y2-S2/Qt-Application-Startup/src -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -std=gnu++17 -o CMakeFiles/SampleApp.dir/src/controller/dashboardcontroller.cpp.o -c /root/2024-Y2-S2/Qt-Application-Startup/src/controller/dashboardcontroller.cpp",
+  "file": "/root/2024-Y2-S2/Qt-Application-Startup/src/controller/dashboardcontroller.cpp"
+},
+{
+  "directory": "/root/2024-Y2-S2/Qt-Application-Startup/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/include -I/root/2024-Y2-S2/Qt-Application-Startup/include -I/root/2024-Y2-S2/Qt-Application-Startup/src -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -std=gnu++17 -o CMakeFiles/SampleApp.dir/src/controller/doctorsearchcontroller.cpp.o -c /root/2024-Y2-S2/Qt-Application-Startup/src/controller/doctorsearchcontroller.cpp",
+  "file": "/root/2024-Y2-S2/Qt-Application-Startup/src/controller/doctorsearchcontroller.cpp"
+},
+{
+  "directory": "/root/2024-Y2-S2/Qt-Application-Startup/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/include -I/root/2024-Y2-S2/Qt-Application-Startup/include -I/root/2024-Y2-S2/Qt-Application-Startup/src -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -std=gnu++17 -o CMakeFiles/SampleApp.dir/src/controller/prescriptioncontroller.cpp.o -c /root/2024-Y2-S2/Qt-Application-Startup/src/controller/prescriptioncontroller.cpp",
+  "file": "/root/2024-Y2-S2/Qt-Application-Startup/src/controller/prescriptioncontroller.cpp"
+},
+{
+  "directory": "/root/2024-Y2-S2/Qt-Application-Startup/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/include -I/root/2024-Y2-S2/Qt-Application-Startup/include -I/root/2024-Y2-S2/Qt-Application-Startup/src -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -std=gnu++17 -o CMakeFiles/SampleApp.dir/src/controller/telemedicinecontroller.cpp.o -c /root/2024-Y2-S2/Qt-Application-Startup/src/controller/telemedicinecontroller.cpp",
+  "file": "/root/2024-Y2-S2/Qt-Application-Startup/src/controller/telemedicinecontroller.cpp"
+},
+{
+  "directory": "/root/2024-Y2-S2/Qt-Application-Startup/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/include -I/root/2024-Y2-S2/Qt-Application-Startup/include -I/root/2024-Y2-S2/Qt-Application-Startup/src -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -std=gnu++17 -o CMakeFiles/SampleApp.dir/src/main.cpp.o -c /root/2024-Y2-S2/Qt-Application-Startup/src/main.cpp",
+  "file": "/root/2024-Y2-S2/Qt-Application-Startup/src/main.cpp"
+},
+{
+  "directory": "/root/2024-Y2-S2/Qt-Application-Startup/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/include -I/root/2024-Y2-S2/Qt-Application-Startup/include -I/root/2024-Y2-S2/Qt-Application-Startup/src -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -std=gnu++17 -o CMakeFiles/SampleApp.dir/src/mainwindow.cpp.o -c /root/2024-Y2-S2/Qt-Application-Startup/src/mainwindow.cpp",
+  "file": "/root/2024-Y2-S2/Qt-Application-Startup/src/mainwindow.cpp"
+},
+{
+  "directory": "/root/2024-Y2-S2/Qt-Application-Startup/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/include -I/root/2024-Y2-S2/Qt-Application-Startup/include -I/root/2024-Y2-S2/Qt-Application-Startup/src -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -std=gnu++17 -o CMakeFiles/SampleApp.dir/src/model/appointmentmodel.cpp.o -c /root/2024-Y2-S2/Qt-Application-Startup/src/model/appointmentmodel.cpp",
+  "file": "/root/2024-Y2-S2/Qt-Application-Startup/src/model/appointmentmodel.cpp"
+},
+{
+  "directory": "/root/2024-Y2-S2/Qt-Application-Startup/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/include -I/root/2024-Y2-S2/Qt-Application-Startup/include -I/root/2024-Y2-S2/Qt-Application-Startup/src -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -std=gnu++17 -o CMakeFiles/SampleApp.dir/src/model/confirmappointmentmodel.cpp.o -c /root/2024-Y2-S2/Qt-Application-Startup/src/model/confirmappointmentmodel.cpp",
+  "file": "/root/2024-Y2-S2/Qt-Application-Startup/src/model/confirmappointmentmodel.cpp"
+},
+{
+  "directory": "/root/2024-Y2-S2/Qt-Application-Startup/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/include -I/root/2024-Y2-S2/Qt-Application-Startup/include -I/root/2024-Y2-S2/Qt-Application-Startup/src -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -std=gnu++17 -o CMakeFiles/SampleApp.dir/src/model/dashboardmodel.cpp.o -c /root/2024-Y2-S2/Qt-Application-Startup/src/model/dashboardmodel.cpp",
+  "file": "/root/2024-Y2-S2/Qt-Application-Startup/src/model/dashboardmodel.cpp"
+},
+{
+  "directory": "/root/2024-Y2-S2/Qt-Application-Startup/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/include -I/root/2024-Y2-S2/Qt-Application-Startup/include -I/root/2024-Y2-S2/Qt-Application-Startup/src -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -std=gnu++17 -o CMakeFiles/SampleApp.dir/src/model/doctorsearchmodel.cpp.o -c /root/2024-Y2-S2/Qt-Application-Startup/src/model/doctorsearchmodel.cpp",
+  "file": "/root/2024-Y2-S2/Qt-Application-Startup/src/model/doctorsearchmodel.cpp"
+},
+{
+  "directory": "/root/2024-Y2-S2/Qt-Application-Startup/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/include -I/root/2024-Y2-S2/Qt-Application-Startup/include -I/root/2024-Y2-S2/Qt-Application-Startup/src -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -std=gnu++17 -o CMakeFiles/SampleApp.dir/src/model/prescriptionmodel.cpp.o -c /root/2024-Y2-S2/Qt-Application-Startup/src/model/prescriptionmodel.cpp",
+  "file": "/root/2024-Y2-S2/Qt-Application-Startup/src/model/prescriptionmodel.cpp"
+},
+{
+  "directory": "/root/2024-Y2-S2/Qt-Application-Startup/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/include -I/root/2024-Y2-S2/Qt-Application-Startup/include -I/root/2024-Y2-S2/Qt-Application-Startup/src -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -std=gnu++17 -o CMakeFiles/SampleApp.dir/src/model/telemedicinemodel.cpp.o -c /root/2024-Y2-S2/Qt-Application-Startup/src/model/telemedicinemodel.cpp",
+  "file": "/root/2024-Y2-S2/Qt-Application-Startup/src/model/telemedicinemodel.cpp"
+},
+{
+  "directory": "/root/2024-Y2-S2/Qt-Application-Startup/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/include -I/root/2024-Y2-S2/Qt-Application-Startup/include -I/root/2024-Y2-S2/Qt-Application-Startup/src -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -std=gnu++17 -o CMakeFiles/SampleApp.dir/src/view/appointmentview.cpp.o -c /root/2024-Y2-S2/Qt-Application-Startup/src/view/appointmentview.cpp",
+  "file": "/root/2024-Y2-S2/Qt-Application-Startup/src/view/appointmentview.cpp"
+},
+{
+  "directory": "/root/2024-Y2-S2/Qt-Application-Startup/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/include -I/root/2024-Y2-S2/Qt-Application-Startup/include -I/root/2024-Y2-S2/Qt-Application-Startup/src -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -std=gnu++17 -o CMakeFiles/SampleApp.dir/src/view/confirmappointmentview.cpp.o -c /root/2024-Y2-S2/Qt-Application-Startup/src/view/confirmappointmentview.cpp",
+  "file": "/root/2024-Y2-S2/Qt-Application-Startup/src/view/confirmappointmentview.cpp"
+},
+{
+  "directory": "/root/2024-Y2-S2/Qt-Application-Startup/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/include -I/root/2024-Y2-S2/Qt-Application-Startup/include -I/root/2024-Y2-S2/Qt-Application-Startup/src -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -std=gnu++17 -o CMakeFiles/SampleApp.dir/src/view/dashboardview.cpp.o -c /root/2024-Y2-S2/Qt-Application-Startup/src/view/dashboardview.cpp",
+  "file": "/root/2024-Y2-S2/Qt-Application-Startup/src/view/dashboardview.cpp"
+},
+{
+  "directory": "/root/2024-Y2-S2/Qt-Application-Startup/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/include -I/root/2024-Y2-S2/Qt-Application-Startup/include -I/root/2024-Y2-S2/Qt-Application-Startup/src -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -std=gnu++17 -o CMakeFiles/SampleApp.dir/src/view/doctorsearchview.cpp.o -c /root/2024-Y2-S2/Qt-Application-Startup/src/view/doctorsearchview.cpp",
+  "file": "/root/2024-Y2-S2/Qt-Application-Startup/src/view/doctorsearchview.cpp"
+},
+{
+  "directory": "/root/2024-Y2-S2/Qt-Application-Startup/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/include -I/root/2024-Y2-S2/Qt-Application-Startup/include -I/root/2024-Y2-S2/Qt-Application-Startup/src -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -std=gnu++17 -o CMakeFiles/SampleApp.dir/src/view/prescriptionview.cpp.o -c /root/2024-Y2-S2/Qt-Application-Startup/src/view/prescriptionview.cpp",
+  "file": "/root/2024-Y2-S2/Qt-Application-Startup/src/view/prescriptionview.cpp"
+},
+{
+  "directory": "/root/2024-Y2-S2/Qt-Application-Startup/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/include -I/root/2024-Y2-S2/Qt-Application-Startup/include -I/root/2024-Y2-S2/Qt-Application-Startup/src -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -std=gnu++17 -o CMakeFiles/SampleApp.dir/src/view/telemedicineview.cpp.o -c /root/2024-Y2-S2/Qt-Application-Startup/src/view/telemedicineview.cpp",
+  "file": "/root/2024-Y2-S2/Qt-Application-Startup/src/view/telemedicineview.cpp"
+},
+{
+  "directory": "/root/2024-Y2-S2/Qt-Application-Startup/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/include -I/root/2024-Y2-S2/Qt-Application-Startup/include -I/root/2024-Y2-S2/Qt-Application-Startup/src -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -std=gnu++17 -o CMakeFiles/SampleApp.dir/SampleApp_autogen/EWIEGA46WW/qrc_resources.cpp.o -c /root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/EWIEGA46WW/qrc_resources.cpp",
+  "file": "/root/2024-Y2-S2/Qt-Application-Startup/build/SampleApp_autogen/EWIEGA46WW/qrc_resources.cpp"
+}
+]
